@@ -85,14 +85,14 @@ Salient features:
 	•	26+ industry leading multi-platform support
 	
 Pros:
-	•Team Working is Easy. Save, Share and Sync all the progress between members
-	•Cloud Support available
-	•Analytics features available which help monitor the performance and other aspects of your game
-	•Easy development because of comprehensive library of ready-made components
+	•	Team Working is Easy. Save, Share and Sync all the progress between members
+	•	Cloud Support available
+	•	Analytics features available which help monitor the performance and other aspects of your game
+	•	Easy development because of comprehensive library of ready-made components
 	
 Cons:
-	•Subscription based model which has additional cost for for development cost in mobile
-	•Closed source without extremely costly license
-	•Cloud and Analytics features are in paid version only
-	•The stable Mono runtime (used for development in Unity) doesnt support newer .NET version and lacks newer features of C#
-	•Not much tutorials for development available on youtube
+	•	Subscription based model which has additional cost for for development cost in mobile
+	•	Closed source without extremely costly license
+	•	Cloud and Analytics features are in paid version only
+	•	The stable Mono runtime (used for development in Unity) doesnt support newer .NET version and lacks newer features of C#
+	•	Not much tutorials for development available on youtube
