@@ -2,3 +2,44 @@ comparison between :
 1) GreenFoot
 2) Melon JS
 3) Unity
+
+
+Melon JS
+
+It is one of the best HTML5/JavaScript frameworks for web-based games.
+Standalone library (does not rely on anything else, except a HTML5 capable browser)
+Compatible with most major browsers (Chrome, Safari, Firefox, Opera, IE) and mobile devices
+Device motion & accelerometer support
+	•	High DPI & auto scaling
+	•	Multi-channel HTML5 audio support and Web Audio on supported devices
+
+Salient Features :
+	•	Video autoscaling
+	•	Mobile optimized HTML/CSS
+	•	Swiping disabled on iOS devices
+	•	Debug Panel (if #debug)
+	•	Default icons
+	•	Distribution build
+	•	Standalone build for desktop operating systems
+
+Building melonJS:
+
+To build your own version of melonJS you will need to install :
+	•	The Node.js JavaScript runtime and npm package manager
+	•	The Grunt task manager
+
+Tutorials for MelonJs:
+	•	Platformer Step by Step Tutorial.
+	•	Space Invaders Step by Step Tutorial.
+
+PROS:
+	•	Good Support
+	•	Tiled Support
+	•	Good Docs
+	•	Has few good tutorials to get started
+
+CONS:
+	•	API breaks all the time
+	•	Not much popular as compared to GreenFoot and Unity
+	•	Less demo examples of the games as compared to others
+
