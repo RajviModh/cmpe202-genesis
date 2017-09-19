@@ -1,5 +1,6 @@
 Framwork we are going to use:
 GreenFoot 
+Note : Why greenfoot is attached in separate file. Also go through wiki page.
 
 Reason : 
 1) Old and reliable framwork
@@ -8,10 +9,11 @@ Reason :
 
 
 Initial Ideas (This can change in our 2nd meeting)
-1) Catch the egg
-2) Galaxy fighter
-3) dx ball 
-4) Pool (need to do more research)
+1) Egg and basket
+2) Catch the egg
+3) Galaxy fighter
+4) dx ball 
+5) Pool (need to do more research)
 
 Next meeting (Spt 19,2017) Questions: 
 
