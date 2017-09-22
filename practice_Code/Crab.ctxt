@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Crab
+comment0.text=\n\ This\ class\ defines\ a\ crab.\ Crabs\ live\ on\ the\ beach.\n
+comment1.params=
+comment1.target=Crab()
+comment1.text=\n\ The\ constructor\ of\ the\ crab,\ which\ stores\ 2\ different\ images\n\ in\ the\ 2\ variables\ image1\ and\ image2.\ Then\ it\ sets\ the\n\ image1\ as\ the\ crab\ class\ default\ image.\n
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ checkKeyPress()
+comment3.text=\n\ Checks\ wehter\ we\ press\ the\ key\ left,\ right\ or\ up,\n\ and\ if\ we\ do\ so,\ turn\ our\ object\ degrees\ -4\ (left)\ or\ 4\ (right),\n\ or\ move\ our\ crab\ forward\ (up).\n
+comment4.params=
+comment4.target=void\ switchImage()
+comment4.text=\n\ Automatically\ switches\ beetwen\ image1\ and\ image2,\ so\n\ it\ looks\ like\ or\ crab\ is\ moving\ (simple\ animation).\n
+comment5.params=
+comment5.target=void\ wonGame()
+comment5.text=\n\ End\ the\ game\ if\ there\ is\ a\ value\ of\ 15\ in\ the\ wormsEaten\ field.\n\ it\ will\ then\ print\ the\ winning\ message\ to\ the\ user.\n
+numComments=6

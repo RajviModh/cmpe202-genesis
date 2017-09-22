@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Lobster
+comment0.text=\n\ Lobsters\ like\ to\ eat\ crabs.\n\ \n\ @author\ Martin\ Rohwedder\ \n\ @version\ 14.\ september\ 2010\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\n\ Act\ -\ lets\ lobsters\ look\ for\ crabs\ to\ eat.\n
+comment2.params=
+comment2.target=void\ lookForCrab()
+comment2.text=\n\ Check\ wether\ we\ have\ stumbled\ upon\ a\ crab.\n\ If\ we\ have,\ eat\ it.\ If\ not,\ do\ nothing.\n
+comment3.params=
+comment3.target=void\ randomTurn()
+comment3.text=\n\ Turns\ the\ lobster\ in\ a\ random\ direction,\ with\ random\ degrees.\n
+comment4.params=
+comment4.target=void\ turnAtEdge()
+comment4.text=\n\ Turns\ the\ Lobster\ if\ it\ reach\ the\ edge\ of\ the\ crabworld.\n
+numComments=5

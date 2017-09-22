@@ -1,12 +1,16 @@
-------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all he/she needs to know. The comments should usually include at least:
-------------------------------------------------------------------------
+        Little Crab
+        ===========
+        
+This scenario is part of the book 
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+    "Introduction to Programming with Greenfoot"
+    by Michael Kolling
+    ISBN: 0-13-603753-4
+
+This scenario is discussed in detail in that book.
+
+Copyright (c) Michael Kolling.
+
+Permission is granted to use this code in any way you like (modification,
+copying, distribution).
+

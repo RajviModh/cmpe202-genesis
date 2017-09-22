@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Animal
+comment0.text=\n\ Animal.\ This\ is\ the\ base\ class\ for\ all\ animals.\ In\ addition\ to\ the\ standard\ Actor\n\ methods,\ it\ provides\ the\ ability\ to\ move\ and\ turn.\n\ \n\ @author\ Michael\ Kolling\n\ @version\ 1.0\n
+comment1.params=
+comment1.target=Animal()
+comment1.text=\n\ Constructor\ for\ Animal\ -\ nothing\ to\ do.\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ Act\ -\ empty\ method.\ Animals\ have\ no\ default\ action.\n
+comment3.params=angle
+comment3.target=void\ turn(int)
+comment3.text=\n\ Turn\ 'angle'\ degrees\ towards\ the\ right\ (clockwise).\n
+comment4.params=
+comment4.target=void\ move()
+comment4.text=\n\ Move\ forward\ in\ the\ current\ direction.\n
+comment5.params=
+comment5.target=boolean\ atWorldEdge()
+comment5.text=\n\ Test\ if\ we\ are\ close\ to\ one\ of\ the\ edges\ of\ the\ world.\ Return\ true\ is\ we\ are.\n
+comment6.params=clss
+comment6.target=boolean\ canSee(java.lang.Class)
+comment6.text=\n\ Return\ true\ if\ we\ can\ see\ an\ object\ of\ class\ 'clss'\ right\ where\ we\ are.\ \n\ False\ if\ there\ is\ no\ such\ object\ here.\n
+comment7.params=clss
+comment7.target=void\ eat(java.lang.Class)
+comment7.text=\n\ Try\ to\ eat\ an\ object\ of\ class\ 'clss'.\ This\ is\ only\ successful\ if\ there\n\ is\ such\ an\ object\ where\ we\ currently\ are.\ Otherwise\ this\ method\ does\n\ nothing.\n
+numComments=8
