@@ -1,1 +1,11 @@
 Greenfoot Handson practice by building a ball bouncing game from scratch.
+
+Analysis and Things Learned:
+
+• Learnt about the World and Actors inside the environment.
+
+• Using Images and setting up the object for actors.
+
+• Understanding the concept of gravity and implementing it to make the ball bounce game to bring the ball down.
+
+• Fixed the ball going below X-axis bottom (ie ground) by checking the position of ball and setting the location by setLocation() method. 
