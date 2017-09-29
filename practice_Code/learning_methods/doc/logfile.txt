@@ -12,9 +12,9 @@ C:\Program Files (x86)\Greenfoot3.0.4\jdk\bin\javadoc.exe
 -source
 1.8
 -classpath
-C:\Program Files (x86)\Greenfoot3.0.4\lib\extensions\greenfoot.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\bluejcore.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\bluejeditor.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\bluejext.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\AppleJavaExtensions.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\junit-4.11.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\hamcrest-core-1.3.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\bluej.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\diffutils-1.2.1.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\commons-httpclient-3.1.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\commons-logging-api-1.1.2.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\commons-codec-1.3.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\jl1.0.1.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\opencsv-2.3.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\xom-1.2.9.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\guava-17.0.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\javassist-3.18.0.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\commons-vfs2-2.0.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\httpclient-4.1.1.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\httpcore-4.1.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\httpmime-4.1.1.jar;D:\greenfoot
+C:\Program Files (x86)\Greenfoot3.0.4\lib\extensions\greenfoot.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\bluejcore.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\bluejeditor.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\bluejext.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\AppleJavaExtensions.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\junit-4.11.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\hamcrest-core-1.3.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\bluej.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\diffutils-1.2.1.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\commons-httpclient-3.1.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\commons-logging-api-1.1.2.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\commons-codec-1.3.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\jl1.0.1.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\opencsv-2.3.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\xom-1.2.9.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\guava-17.0.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\javassist-3.18.0.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\commons-vfs2-2.0.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\httpclient-4.1.1.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\httpcore-4.1.jar;C:\Program Files (x86)\Greenfoot3.0.4\lib\httpmime-4.1.1.jar;D:\learning_methods
 -d
-D:\greenfoot\doc
+D:\learning_methods\doc
 -encoding
 UTF-8
 -charset
@@ -23,19 +23,31 @@ UTF-8
 C:\Program Files (x86)\Greenfoot3.0.4\lib\bjdoclet.jar
 -doclet
 bluej.doclet.doclets.formats.html.HtmlDoclet
-D:\greenfoot\camel.java
+D:\learning_methods\MyWorld.java
 <---- end of javadoc command ---->
-Loading source file D:\greenfoot\camel.java...
-Constructing Javadoc information...
-Standard Doclet version 1.8.0_92
-Building tree for all the packages and classes...
-Generating D:\greenfoot\doc\camel.html...
-Generating D:\greenfoot\doc\package-frame.html...
-Generating D:\greenfoot\doc\package-summary.html...
-Generating D:\greenfoot\doc\constant-values.html...
-Building index for all the packages and classes...
-Building index for all classes...
-Generating D:\greenfoot\doc\allclasses-frame.html...
-Generating D:\greenfoot\doc\allclasses-noframe.html...
-Generating D:\greenfoot\doc\index.html...
-Generating D:\greenfoot\doc\stylesheet.css...
+Loading source file D:\learning_methods\MyWorld.java...
+D:\learning_methods\MyWorld.java:2: error: <identifier> expected
+import 
+      ^
+D:\learning_methods\MyWorld.java:9: error: <identifier> expected
+public class MyWorld extends World
+      ^
+D:\learning_methods\MyWorld.java:9: error: ';' expected
+public class MyWorld extends World
+            ^
+D:\learning_methods\MyWorld.java:9: error: class, interface, or enum expected
+public class MyWorld extends World
+                     ^
+D:\learning_methods\MyWorld.java:9: error: class, interface, or enum expected
+public class MyWorld extends World
+                             ^
+D:\learning_methods\MyWorld.java:16: error: class, interface, or enum expected
+    public MyWorld()
+           ^
+D:\learning_methods\MyWorld.java:20: error: class, interface, or enum expected
+        Elephent e = new Elephent();
+        ^
+D:\learning_methods\MyWorld.java:21: error: class, interface, or enum expected
+    }
+    ^
+8 errors

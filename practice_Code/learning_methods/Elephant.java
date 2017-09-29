@@ -26,5 +26,15 @@ public class Elephant extends Actor
         {
             turn(-5);
         }
-    }    
+        
+        turnAtEdge();
+    }   
+    
+     public void turnAtEdge()
+    {
+        if (  atWorldEdge() )
+        {
+            turn(17);
+        }
+    }
 }
