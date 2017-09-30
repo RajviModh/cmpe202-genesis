@@ -1,0 +1,82 @@
+Greenfoot API Documentation Learning Summary:
+
+1.	Class Hierarchy
+
+  •	In java.Object.Lang it contains 9 classes listed as follows:
+    o	 Actor, Color, Font, Greenfoot, Greenfoot Image, GreenfootSound, MouseInfo, UserInfo, and World.
+    
+2.	Package Greenfoot
+
+  •	The package consists of 9 classes as mentioned above.
+  •	All these classes have their own functionalities with predefined set of methods which can be used to build the game.
+  •	The names of these classes is self-explanatory.
+  o	Object in Greenfoot world represents Actor.
+  o	Color handles everything related to colors.
+  o	Font handles the text representation inside the game.
+  o	The simulation and interaction is controlled by Greenfoot class.
+  o	All the images on screen are handled by GreenfootImage.
+  o	Audio is managed by GreenfootSound.
+  o	MouseInfo contains all the information about status of mouse.
+  o	To store the data and use it for sharing with other users while on the Greenfoot website, UserInfo can be helpful.
+  o	The actors live in World.
+  
+3.	Class Actor
+
+  •	It is an object inside the greenfoot world.
+  •	Important Methods – Act() which activates Act or Run button in Greenfoot interface.
+  •	Learned about all the methods inside Actor class like getImage(), getWorld(), getX(), getY(), setImage(), setLocation(), 
+    move() etc with its details.
+    
+4.	Class Color
+
+  •	The color class is used to draw and fill shapes on screen. It has static color with 13 predefined colors like 
+    Black, Blue, Cyan, Green, White, Magenta, Yellow, Orange, Pink, Red, Light Gray, Dark Gray, and Gray.
+  •	It has constructor with 3 and 4 arguments having red, blue, green and alpha values in 0-255 range.
+  •	Saw methods like brighter(), darker(), hashCode and its explanation.
+  •	Other get methods with r,g,b and a values (ie getRed() and so on) can be used to get back values of same in 0-255 range.
+  
+5.	Class Font
+
+  •	It is mainly used to write text on the screen.
+  •	It has 4 parameterized constructor with arguments like font name, size and other styling options like bold and italics.
+  •	Learned about its methods like deriveFont(), getName(), hashCode(), isBold(), isItalic() and isPlain().
+
+6.	Class Greenfoot
+
+  •	It mainly provides the utilities to control the interaction and simulation with the system.
+  •	The key input can be retrieved by this class with methods like getKey() and isKeyDown().
+  •	Learned about different methods related to Mouse movements, Speeds, Keys, Sound, and other cruicial methods like 
+    start(), stop(), ask(), delay() , getRandomNumber() and setWorld().
+
+7.	Class GreenfootImage
+
+  •	Mainly responsible for any image that is shown on the screen. The images may be loaded from file or by using various 
+    predefined drawing methods that are available in this class.
+  •	It has 5 different parameterized constructors with image, width, height, filename, background and foreground colors, and 
+    outlines as argument.
+  •	Learned about various drawing methods like drawShape(), drawRect(),drawImage() etc along with its arguments.
+  •	Learned about various fill, get, set and mirror methods like fillOval(), fillRect(), getColor(), getAWTImage(), setColor(), 
+    setTransparency(), rotate(), scale() etc.
+
+8.	Class MouseInfo
+
+  •	It contains information about current status of mouse. The information can be gathered by Greenfoot.getMouseInfo().
+  •	Learned about its methods like getActor(), getButton(), getClickCount(), getX(), getY().
+
+9.	Class UserInfo
+
+  •	This class is used to store the data on server and share this data between users. For example, sharing the high score 
+    on web between users like top 10 scorers.
+  •	The methods inside can be used to retrieve user information while they play the game. The only prerequisite is that user 
+    must be logged in for this.
+  •	Learned about various get and set methods like getMyInfo(), getRank(), getTop(), getScore(), isStorageAvailable(), setScore(), 
+    setInt() along with score() etc.
+
+10.	Class World
+
+  •	It is 2 dimensional grid of cells where all the actors live. All associated actors can get the access of world object. 
+    Images and drawings can be used to decorate the background.
+  •	It has 2 different parameterized constructors with 4 arguments like world width, Height, cellSize and bounded as Boolean 
+    argument for actors to be bounded to some boundary in world.
+  •	Learned about add, get and set methods like addObject(), getBackground(), getCellSize(), setActOrder() etc along with other 
+    methods like act(), removeObject(), repaint(), start(), stop() etc along with parameters it accepts as arguments.
