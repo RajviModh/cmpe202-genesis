@@ -1,0 +1,32 @@
+//Implementing a Simple Counter In Game
+
+
+
+//Storing a reference to the counter in the world.
+private Counter theCounter;
+
+public Space()
+{
+    super(600, 400, 1);
+    addObject(new Rocket(), 300, 200);
+    theCounter = new Counter();
+    addObject(theCounter, 5, 5);
+}
+
+//Method added to Space class to retrieve the value of counter.
+public Counter getCounter()
+{
+    return theCounter;
+}
+
+//Shot Class
+//Accessing the world from the shot, and then calling the getCounter method on the world to obtain a reference to the counter; 
+//finally, calling the bumpCount method on the counter reference. So when the shot needs to increment the counter, 
+//it asks the world for a reference to the counter, and then modifies the counter using that reference. 
+
+void hitAnAsteroid()
+{
+    Space spaceWorld = (Space) getWorld();  // get a reference to the world
+    Counter counter = spaceWorld.getCounter();  // get a reference to the counter
+    counter.bumpCount(5);
+}
