@@ -1,0 +1,112 @@
+comparison between :
+1) GreenFoot
+2) Melon JS
+3) Unity
+
+############################
+Melon JS
+############################
+
+It is one of the best HTML5/JavaScript frameworks for web-based games.
+Standalone library (does not rely on anything else, except a HTML5 capable browser)
+Compatible with most major browsers (Chrome, Safari, Firefox, Opera, IE) and mobile devices
+Device motion & accelerometer support
+	•	High DPI & auto scaling
+	•	Multi-channel HTML5 audio support and Web Audio on supported devices
+
+Salient Features :
+	•	Video autoscaling
+	•	Mobile optimized HTML/CSS
+	•	Swiping disabled on iOS devices
+	•	Debug Panel (if #debug)
+	•	Default icons
+	•	Distribution build
+	•	Standalone build for desktop operating systems
+
+Building melonJS:
+
+To build your own version of melonJS you will need to install :
+	•	The Node.js JavaScript runtime and npm package manager
+	•	The Grunt task manager
+
+Tutorials for MelonJs:
+	•	Platformer Step by Step Tutorial.
+	•	Space Invaders Step by Step Tutorial.
+
+PROS:
+	•	Good Support
+	•	Tiled Support
+	•	Good Docs
+	•	Has few good tutorials to get started
+
+CONS:
+	•	API breaks all the time
+	•	Not much popular as compared to GreenFoot and Unity
+	•	Less demo examples of the games as compared to others
+
+############################
+Greenfoot
+############################
+
+It is an interactive Java development environment designed primarily for educational purposes at the high school and undergraduate level. It allows easy development of two-dimensional graphical applications, such as simulations and interactive games.
+
+Tutorials for Greenfoot:
+
+Greenfoot Gallery : Scenarios written by members of the Greenfoot community
+Greenroom : forum for educators using Greenfoot.
+
+Salient Features:
+•	Graphical representation of all classes makes it easy to analyse and modify code
+•	Provides java browser plugin 
+•	Direct technical support from Greenfoot site
+
+PROS :
+
+•	Greenfoot is free to use : Greenfoot can be easily downloaded from the internet and free to use.
+•	Greenfoot is easy to use : Creating interesting, good looking interactive animations and games in Greenfoot is 
+	relatively straightforward. Its environment allows people to experiment with Java concepts without the need for 
+	extensive configuration.
+•	Greenfoot is an interactive Java environment : Java code allows user to easily create simple graphics or visuals. 
+	Its graphical nature makes it good for interactive games and simulations in a 2-D cartoon type format.
+•	Greenfoot has a wide community : Greenfoot delivers variety of additional resources such as tutorials and community 
+	support which can help users to get on hands with the application easily.
+•	No need to write main static method. As soon as the world class and one of the classes representing an actor in the 
+	world compile, objects can be created and the behavior can be tested. There is no need to write test drivers or a 
+	main method.
+
+CONS:
+•	While programming java in Greenfoot, there are some specific classes e.g. Actor, World, Greenfoot which are only available in Greenfoot so it becomes difficult to handle java code in any other IDE.
+•	It doesn’t provide source completion and sources.
+•	It does not provide graphical facilities such as drag-and-drop to develop the code. It provides textual interface to develop the code.
+•	In Greenfoot, we need to explicitly compile code, whereas this is not required in other IDEs.
+
+############################
+Unity 
+############################
+
+Unity is an all purporse game engine developed by Unity Technologies. 
+It is mainly used to develop simulators for various devices like computers, consoles and mobile devices. 
+It is based on C#, supports 2D and 3D graphics, drag and drop functionality in its editor. 
+It targets various graphics APIs: OpenGL in Windows,Linux and Mac OS, Direct3D in Windows and XBOX One, 
+WEBGL for web and other proprietary API's for video game consoles.
+
+Salient features:
+	•	Machine Learning Agents available inbuilt
+	•	Powerful Artist Tools in Unity 2017.1
+	•	Augmented Reality and Virtual Reality Support available
+	•	Essential Packs which are easy to start the development
+	•	Reach and Extensible Editor
+	•	26+ industry leading multi-platform support
+	
+Pros:
+	•	Team Working is Easy. Save, Share and Sync all the progress between members
+	•	Cloud Support available
+	•	Analytics features available which help monitor the performance and other aspects of your game
+	•	Easy development because of comprehensive library of ready-made components
+	
+Cons:
+	•	Subscription based model which has additional cost for for development cost in mobile
+	•	Closed source without extremely costly license
+	•	Cloud and Analytics features are in paid version only
+	•	The stable Mono runtime (used for development in Unity) doesnt support newer .NET version and lacks newer features of C#
+	•	Not much tutorials for development available on youtube
