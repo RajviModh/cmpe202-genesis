@@ -1,0 +1,14 @@
+//Playing a sound in Greenfoot is extremely simple. Copy the sound file into your scenario's sounds folder. 
+//In your code create a GreenfootSound object using the GreenfootSound constructor with the name of the sound file
+      GreenfootSound sound=new GreenfootSound ("explosion.wav")
+      sound.play();
+
+//The sound can be stopped and paused by using the stop() and pause() methods respectively 
+     sound.stop(); 
+     sound.pause(); 
+     
+//The sound can be played in a loop using the playLoop() method 
+     sound.playLoop(); 
+
+//Finally, the user can check whether a sound is playing via the isPlaying() method which returns true if the sound is playing and false if not.
+     sound.isPlaying(); 
