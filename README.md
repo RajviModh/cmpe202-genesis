@@ -25,7 +25,6 @@ After successfully installing Greenfoot 3.0.4, you can download the project and 
 
 ### Design Patterns
 
-** Yet to define
 
 ** Yet to define
 
