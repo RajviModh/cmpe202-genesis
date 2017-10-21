@@ -8,7 +8,7 @@ This is a small game project on greenfoot.
 
 ## Getting Started
 
-** under process
+** Under developemnt
 
 ### Prerequisites
 
@@ -25,7 +25,6 @@ After successfully installing Greenfoot 3.0.4, you can download the project and 
 
 ### Design Patterns
 
-Explain what these tests test and why
 
 ** Yet to define
 
