@@ -1,0 +1,16 @@
+->Crazy Car feasibility:
+
+*In the crazy car game, we need to avoid car crash by simply dodging the car using arrow keys “up” and “down”. The background and car both are static. Only new random cars enter in current frame. 
+
+*Different difficulty levels can be implemented in this game by making other cars move faster making it difficult for the user to avoid car crash.
+
+*Also new obstacles like pothholes can be added in the game to make it more difficult.
+
+
+->Cons:
+*More than 3 design patterns can’t be implemented for this game.
+*We can’t play the game in multiplayer mode where in many users compete with each other.
+*Game too small for the present team size.
+
+->Tools And Technology:
+Greenfoot
