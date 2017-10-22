@@ -1,0 +1,23 @@
+Snack Game:
+Basic Defination : The game is all about the snack and its food.
+
+Popularity : It was one of the most famous game which was being included in the old phones by default.
+
+Features : 
+Its a single player game.
+We are having one nack which we can controll from the keyboard. 
+Snack should be operated in such way that it can eat as muck as points.
+Snack's face should not touch any other part of snack else the game will be over.
+
+
+Features can be added :
+We can make it multi player desktop/web browser game.
+if a single player wants to play, we can have our own code operated snack to compete with the player.
+The snack eating more points will win.
+
+A major twist, we can chnage the way the snack is responding to the movement inputs. Instead of simple path, we can use reverse path or circular rotation in response to the keyboard operatior.
+
+
+Design Patterns :
+
+After adding the features mentioned above, we can implement several design pattern in the implementation. Such as observer, composit, state, signleton, chain of responsibility etc.
