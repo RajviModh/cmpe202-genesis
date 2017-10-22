@@ -4,7 +4,7 @@ This is a small game project on greenfoot.
 
 # Project Title
 
-Crazy Snack
+Crazy Snake
 
 ## Getting Started
 
