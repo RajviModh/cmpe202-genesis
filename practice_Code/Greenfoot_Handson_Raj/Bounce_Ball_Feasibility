@@ -1,0 +1,15 @@
+> Summarizing the Ball Game feasibility:
+
+* A bouncing ball game can be built where user clicks the “UP” arrow key and ball sits on the block. There are random blocks in the world.
+* The world keeps moving up and user has to keep going up and changing blocks in order to survive in the game before the block on which the ball is, runs out of screen.
+* Different levels could be implemented in such a game.
+
+* Also, multiplayer feature could be added where in different users could compete with each other over the network and play the game, one with the higher score wins.
+* Global score board for users with profiles could be added as a functionality where users can play and compete with other users to stay on the top in score board.
+
+* Tools and Technology to be used: Greenfoot, nodejs for backend database
+
+> Cons:
+* Too small game for the current team size.
+* Cannot implement more design patterns in such a simple game.
+* Many games are already available with the same concept.
