@@ -1,7 +1,8 @@
 ##User Stories##
+
 1.)
-a.) As a game player,
-b.)I can be able to choose number of players to play,
+a.) As a game player
+b.)I can be able to choose number of players to play
 c.)so that I can either play with bot or 2nd player.
 
 As a game player,
