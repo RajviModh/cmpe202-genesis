@@ -1,5 +1,5 @@
 # Individual Wiki : 
-**@Author : Divyang Soni**
+**Author : Divyang Soni**
 * Values to track :  feedback
 * Weekly meetings : every Saturday 
 
@@ -21,13 +21,13 @@
 2. Team member are working on different design patterns and giving feedbacks about usability in current raw defination.
 
 
-**/summary (10/14/2017)**
+**Summary (10/14/2017)**
 
 1) Team is going through implementation style learning and giving feedback about how we can achieve the goal with proper coding style.
 2) Team is learning design patterns as individual task and provide feedback to everyone with their knowledge.
 
 
-**/summary (10/21/2017)**
+**Summary (10/21/2017)**
 
 1) After taking continuous feedbacks, team got the final decision of game. Feedbacks are being taken for final features of game.
 2) After learning about various design patterns, team is giving feedbacks about the design patterns to be used in the game.
