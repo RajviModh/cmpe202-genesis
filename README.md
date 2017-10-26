@@ -32,6 +32,14 @@ After successfully installing Greenfoot 3.0.4, you can download the project and 
 
 ** Yet to define
 
+## Cumulative Flow Diagram for week1 to week4
+
+* [Cumulative Flow Diagram](https://docs.google.com/spreadsheets/d/16JcoSsfsleBbgpviz8kwhF91ihcudgJVabjRrcYLcTE/edit#gid=1664257544)
+
+## Burndown Chart and Taskboard for week5 to week8
+
+* [Burndown Chart](https://docs.google.com/spreadsheets/d/1KAjrix2JjkmJWOIDFA7lrp02j91k5Wt4eYpqvAs4Ceo/edit#gid=0)
+
 ## Built With
 
 * [Greenfoot](https://www.greenfoot.org/files/javadoc/) - The gaming framework used
