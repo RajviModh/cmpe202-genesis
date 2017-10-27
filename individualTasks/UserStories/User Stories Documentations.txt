@@ -1,0 +1,20 @@
+What is User Story?
+User stories are short, simple descriptions of a feature told from the perspective of the person who desires the new capability, usually a user or customer of the system. 
+
+User stories should include all the features of the application. Typically in agile methodology and specially in Scrum, User stories are major part to under stand the requirements.
+
+User Stories are the product backlogs which then be modified or broken down by the Product Owner.
+
+
+Template:
+As a < type of user >,
+I want < some goal >,
+so that < some reason >.
+
+
+What is epic?
+The User Story may contain a small functionality or bunch of functionalities. 
+If its having bunch of functionalities, It can be reffered as epic and then can be divided into small user Stories.
+
+
+Note : Some of the user stories mentioned for this project can be considered as epic and will be divided into small user stories according to the requirements.
