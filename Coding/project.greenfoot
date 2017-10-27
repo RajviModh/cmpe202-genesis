@@ -1,9 +1,9 @@
 #Greenfoot properties
-#Thu Oct 26 22:37:14 PDT 2017
+#Thu Oct 26 22:42:46 PDT 2017
 version=2.8.0
 project.charset=UTF-8
-class.Back.superclass=greenfoot.World
-world.lastInstantiated=MyWorld
+class.Background.superclass=greenfoot.World
+world.lastInstantiated=Back
 mainWindow.y=40
 mainWindow.x=40
 mainWindow.width=850
