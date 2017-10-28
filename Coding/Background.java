@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.awt.*; 
 /**
  * Write a description of class Background here.
  * 
@@ -24,9 +24,20 @@ public class Background extends World
     {    
         super(800, 600, 1,false); 
         start=0;
+        setPaintOrder(Snake.class, EnemySnake.class, SnakeBody.class, EnemySnakeBody.class);
+        
         World=null;
         Paused=false;
-        
+        prepareInitial();
+    }
+    
+    private void prepareInitial(){
+         SnakeBody.end_timer = 50;
+         SnakeBody.shield = 0;
+         
+         Background.playerSize = 11;
+         Background.foodSize=16;
+         
     }
     
     private void prepareSnakeGame()
@@ -35,7 +46,7 @@ public class Background extends World
     }
     
     
-    public void react(){
+    public void act(){
         
         if(start==1)
         {
@@ -65,6 +76,14 @@ public class Background extends World
        // method to reset the game
     }
     
+        public void Image()
+    {
+        GreenfootImage image = new GreenfootImage(getWidth(), getHeight()); 
+        image.clear();
+        image.setColor(new Color(204,204,204));
+        image.fill();
+        setBackground(image);
+    }
     
     
     
