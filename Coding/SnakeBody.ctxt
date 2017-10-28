@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=void\ Snake_Attacked()
 comment4.params=
 comment4.target=void\ Image()
-numComments=5
+comment5.params=
+comment5.target=void\ BodyPaint()
+numComments=6
