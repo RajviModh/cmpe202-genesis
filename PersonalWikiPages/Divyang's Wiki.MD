@@ -32,3 +32,7 @@
 1) After taking continuous feedbacks, team got the final decision of game. Feedbacks are being taken for final features of game.
 2) After learning about various design patterns, team is giving feedbacks about the design patterns to be used in the game.
 
+**Summary (10/28/2017)**
+
+1) After decisidng the final game, team starts taking feedback about the features that must be included for making it more interesting for the user.
+2) The team is taking feedbacks from each other about the coding styles and design patterns to be implemented. 
