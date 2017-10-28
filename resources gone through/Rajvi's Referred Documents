@@ -6,3 +6,25 @@ https://www.tutorialspoint.com/design_pattern/filter_pattern.htm
 
 Facade Pattern
 https://www.tutorialspoint.com/design_pattern/facade_pattern.htm
+
+How to create Random behavior in Greenfoot scenarions based on random numbers :
+
+Greenfoot has a built-in class called 'Greenfoot' that is part of the framework. This class has a method called getRandomNumber. 
+Its signature is :
+  + public int getRandomNumber(int limit)
+  
+In our own code, whenever we need a random number, we can call this method:
+  + int myNumber = Greenfoot.getRandomNumber(10);
+  
+This example will give us a number in the range [0..9]. That is: the number is always between zero (inclusive) and the limit you specify (exclusive). 
+For details, see the description of the Greenfoot class in the Greenfoot API.
+Once you have random numbers, using these for random behaviour is only a smallstep. 
+
+For example:
+    if(Greenfoot.getRandomNumber(2) == 0) {   // 50% chance
+        turnLeft();
+    }
+    else {
+        turnRight();
+    }
+    
