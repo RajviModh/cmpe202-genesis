@@ -56,7 +56,7 @@ public class Background extends World
         Background.playerSize = 11;
         Background.foodSize=16;
         addObject(player, 400, 450);
-        //addObject(enemy, 400, 150);
+        addObject(enemy, 400, 150);
     // This method will be used to make initial setup of the game
     }
     
