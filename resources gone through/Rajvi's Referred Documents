@@ -28,3 +28,23 @@ For example:
         turnRight();
     }
     
++To make object move on screen, it is enough to modify the object's location. 
+Three attributes of each actor become automatically and immediately visible on screen when you change them. They are:
+•	the location (given as x and y coordinates) 
+•	the rotation
+•	the image
+If we change any of these attributes, the appearance of the actor on screen will change. The Actor class has methods to get and set any of these. 
+ 
++The first thing to look at is location changes. Consider, for example, the following code:
+    public void act()
+    {
+        int x = getX();
+        int y = getY();
+        setLocation(x + 1, y);
+    } 
+The effect of this code fragment is to move the actor one cell to the right. It does this by getting the actor's current x and y coordinates, and then 
+setting a new location for the actor with the x-coordinate increased by one. We can write the same code a little shorter as 
+    public void act()
+    {
+        setLocation(getX() + 1, getY());
+

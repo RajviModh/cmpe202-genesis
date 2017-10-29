@@ -11,7 +11,7 @@ import java.util.Calendar;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class EnemySnakeBody
+public class EnemySnakeBody extends Actor
 {
     /**
      * Act - do whatever the EnemySnakeBody wants to do. This method is called whenever

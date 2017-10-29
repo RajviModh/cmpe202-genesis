@@ -9,7 +9,7 @@ import java.lang.Math;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class EnemySnake
+public class EnemySnake extends Actor
 {
     // instance variables - replace the example below with your own
     private int x;
@@ -44,4 +44,28 @@ public class EnemySnake
     {
         //Called when the snake eats the food
     }
+    
+     public void findTarget()
+    {
+        //Determine the Target Food 
+       
+    }
+    
+     public boolean isFoodPresent()
+    {
+        //Detect if the Enemy is within the location it beleives to be the food and if it intersects with the food
+        return true;
+    }
+    
+    public void Life()
+    {
+       //Handles the XP points, health and life bars 
+    }
+    
+    public void Location()
+    {
+        //Move the snake to the inverse side of the screen if on edge
+       
+     }
+   
 }
