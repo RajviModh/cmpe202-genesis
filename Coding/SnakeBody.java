@@ -12,6 +12,7 @@ public class SnakeBody extends Actor
     // Defining initial variables 
     public static int end_timer;
     public int count;
+    public int new_size=Background.playerSize; 
     public static int shield;
     public static int x=210;
     public static int y=210;
@@ -88,5 +89,25 @@ public class SnakeBody extends Actor
             Body.drawOval(0, 0, Background.playerSize-1, Background.playerSize-1);
             Body.drawOval(0, 0, Background.playerSize-2, Background.playerSize-2);
        }
+       else if(shield==5)
+       {
+            Body.setColor(new Color(217,217,25));
+            Body.drawOval(0, 0, Background.playerSize-1, Background.playerSize-1);
+            Body.drawOval(0, 0, Background.playerSize-2, Background.playerSize-2);
+       }
+       else if(shield==6)
+       {
+           Body.setColor(new Color(14,191,233));
+            Body.drawOval(0, 0, Background.playerSize-1, Background.playerSize-1);
+            Body.drawOval(0, 0, Background.playerSize-2, Background.playerSize-2);
+        }
+        else if(shield==7)
+        {
+            Body.setColor(new Color(14,191,233));
+            Body.drawOval(0, 0, Background.playerSize-2, Background.playerSize-2);
+            Body.setColor(new Color(210,210,210));
+            Body.drawOval(0, 0, Background.playerSize-1, Background.playerSize-1);
+        }
+       
     }
 }
