@@ -31,7 +31,31 @@ public class Snake extends Actor
     public void act() 
     {
         // Add your action code here.
-    }    
+        if(Background.Paused)
+        {
+            if(Background.World!="GAME")
+            {
+                mainMenu();
+            }
+        }else{
+            if(Background.World=="GAME")
+            {
+                controls();
+                eat();
+                Location();
+                bodyControl();
+                foodPresent();
+                Life();
+            }else{
+                mainMenu();
+            }
+        }
+    } 
+    
+    public void mainMenu()
+    {
+        
+    }
     
     //logic for snake eating food and changes to be made afterwards
     public void eat()
@@ -67,7 +91,23 @@ public class Snake extends Actor
     // logic for determining edges and set appropriate changes
     public void Location()
     {
-        
+        //to move snake to other side of screen if it hits the edge
+         if(getX()>800)
+        {
+            setLocation(0,getY());
+        }
+        if(getX()<0)
+        {
+            setLocation(800,getY());
+        }
+        if(getY()>600)
+        {
+            setLocation(getX(),0);
+        }
+        if(getY()<0)
+        {
+            setLocation(getX(),600);
+        }
     }
 
      
