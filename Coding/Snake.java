@@ -14,6 +14,52 @@ public class Snake extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     GreenfootImage image = new GreenfootImage(24,24); 
+    GreenfootSound sound;
+    
+    public int rotation=5;
+    public int speed=5;
+    
+    public int addCounter;
+    public int addTimer=2;
+    
+    public int sameActionCountLeft;
+    public int sameActionCountRight;
+    
+    public int spacecount=0;
+    
+    public int leftTurn = 9;
+    public int rightTurn = 9;
+    
+    public int foodEaten=0;
+    
+    public static int PlayerIsActive;
+    
+    public static int Health;
+    public int Primary;
+    
+    public int Regeneration;
+    public static int Armour;
+    
+    public String target;
+    
+    public int yDiff;
+    public int xDiff;
+    public int locationyDiff; 
+    
+    public int absoluteDiff;
+    
+    public int present;
+    
+    public int angleDiff;
+    public double angle;
+    
+    public static int armourEfficency;
+    public static int armourCount;
+    
+    public int nullY;
+    public int nullX;
+    public int killNullCount;
+    
     //initialize player in game
     public Snake()  
     {
