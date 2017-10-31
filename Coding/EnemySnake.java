@@ -13,6 +13,8 @@ public class EnemySnake extends Actor
 {
     // instance variables - replace the example below with your own
     private int x;
+    public static int PlayerIsActive=100;
+    public int absoluteDiff;
 
     /**
      * Constructor for objects of class Enemy
@@ -37,7 +39,28 @@ public class EnemySnake extends Actor
     {
         //Used to control the enemy snake
         // put your code here
+        move(speed);
+        PlayerIsActive--;
+        //Detect player interaction
+        if(Back.players==2)
+        {
+            if(Greenfoot.isKeyDown("D"))
+            {
+                turn(5);
+                PlayerIsActive=100;
+            }
+            if(Greenfoot.isKeyDown("A"))
+            {
+                turn(-5);
+                PlayerIsActive=100;
+            }
+        }
        
+    }
+      public void aroundFood()
+    {
+        
+        
     }
     
      public void eat()
@@ -54,7 +77,13 @@ public class EnemySnake extends Actor
      public boolean isFoodPresent()
     {
         //Detect if the Enemy is within the location it beleives to be the food and if it intersects with the food
-        return true;
+
+        if (absoluteDiff <=25 && food!=null)
+        {
+            return true;
+        }
+        return false;
+
     }
     
     public void Life()
@@ -65,7 +94,22 @@ public class EnemySnake extends Actor
     public void Location()
     {
         //Move the snake to the inverse side of the screen if on edge
-       
+       if(getX()>100)
+        {
+            setLocation(0,getY());
+        }
+        if(getX()<0)
+        {
+            setLocation(800,getY());
+        }
+        if(getY()>400)
+        {
+            setLocation(getX(),0);
+        }
+        if(getY()<0)
+        {
+            setLocation(getX(),600);
+        }
      }
    
 }
