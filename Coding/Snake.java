@@ -71,6 +71,10 @@ public class Snake extends Actor
         image.fillOval(10, 7, 3, 4);
         image.fillOval(10, 13, 3, 4);
         setImage(image); 
+        PlayerIsActive=100;
+        armourEfficency=0;
+        Armour=0;
+        armourCount=0;
     }
     
     //to be implemented for checking state of game whether paused or on
@@ -119,7 +123,23 @@ public class Snake extends Actor
     //and enemy interaction.
     public void Life()
     {
-    
+        Regeneration++;
+        if(Regeneration==50)
+        {
+            Health=Health+1;
+            Regeneration=0;
+        }
+        if(Health>100)
+        {
+            Health=100;
+        }
+        //Rationalize the health
+        if(Health<0)
+        {
+            Health=0;
+        }
+        
+        //logic when snake touches enemy to be added
     }
 
     //logic for controlling the snake
@@ -131,7 +151,13 @@ public class Snake extends Actor
     //for adding segments on the timer
     public void bodyControl()
     {
-        
+        addCounter++;
+        if(addCounter==addTimer)
+        {
+            SnakeBody playerbody = new SnakeBody();
+            getWorld().addObject(playerbody, getX(), getY());
+            addCounter=0;
+        }
     }
     
     // logic for determining edges and set appropriate changes
