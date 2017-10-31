@@ -2,10 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*; 
 import java.awt.*; 
 /**
- * Write a description of class SnakeBody here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Neha Jethani) 
  */
 public class SnakeBody extends Actor
 {
@@ -14,6 +11,8 @@ public class SnakeBody extends Actor
     public int count;
     public int new_size=Background.playerSize; 
     public static int shield;
+    private int size;
+    public static int shade_count;
     public static int x=210;
     public static int y=210;
     public static int z=210;
@@ -30,7 +29,13 @@ public class SnakeBody extends Actor
     
     public void action() 
     {
-        // Add your action code here.
+        //Check whether background is not paused and then only proceed
+        if(!Background.Paused)
+        {
+            Image();
+            Snake_Attacked();
+            count++;
+        }
     }    
     
     public void Snake_Attacked()
