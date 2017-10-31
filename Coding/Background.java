@@ -103,6 +103,43 @@ public class Background extends World
         setBackground(image);
     }
     
+    public void Mute()
+    {
+        music.setVolume(volume);
+        if("m".equals(key))  
+        {
+            if(Muted)
+            {
+                Muted=false;
+            }else{
+                Muted=true;
+            }
+        }
+        if(Muted)
+        {
+            volume=0;
+        }else{
+            volume=50;
+        }
+    }
+    
+    public void addNew()
+    {
+        Snake player = new Snake();
+        EnemySnake enemy = new EnemySnake();
+        if("a".equals(key))
+        {
+            if(getObjects(Snake.class).isEmpty())
+            {
+                addObject(player, 400, 450);
+            }
+            if(getObjects(EnemySnake.class).isEmpty())
+            {
+                addObject(enemy, 400, 150);
+            }
+        }
+    }
+    
     
     
     
