@@ -47,15 +47,46 @@ public class SnakeBody extends Actor
     {
         //To draw snake based on shield's value
         if(shield==0)
-        {}
+        {
+            Snake.armourEfficency=shield_diffrence+3;
+            Snake.Armour = 1000;
+            setImage(Body);
+        }
         else if(shield==1)
-        {}
+        {
+            Snake.armourEfficency=shield_diffrence*2+2;
+            setImage(Body);
+        }
         else if(shield==2)
-        {}
+        {
+            Snake.armourEfficency=shield_diffrence*3+1;
+            setImage(Body);
+        }
         else if(shield==3)
-        {}
+        {
+            Snake.armourEfficency=shield_diffrence*4;
+            setImage(Body);
+        }
         else if(shield==4)
-        {}
+        {
+            Snake.armourEfficency=shield_diffrence*5;
+            setImage(Body);
+        }
+        else if(shield==5)
+        {
+            Snake.armourEfficency=shield_diffrence*6;
+            setImage(Body);
+        }
+        else if(shield==6)
+        {
+            Snake.armourEfficency=shield_diffrence*7;
+            setImage(Body);
+        }
+        else if(shield==7)
+        {
+            Snake.armourEfficency=shield_diffrence*8;
+            setImage(Body);
+        }
         if(end_timer>=120)
         {
             shield++;
