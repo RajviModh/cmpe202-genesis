@@ -19,7 +19,7 @@ public class EnemySnakeBody extends Actor
      */
 
     public static int armour;
-    GreenfootImage Body = new GreenfootImage(Back.playerSize, Back.playerSize);
+    GreenfootImage Body = new GreenfootImage(Background.playerSize, Background.playerSize);
     
    public void EnemySnakebody()
     {
@@ -68,4 +68,5 @@ public class EnemySnakeBody extends Actor
             break;
     } 
    
+}
 }

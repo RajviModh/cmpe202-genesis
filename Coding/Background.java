@@ -17,9 +17,13 @@ public class Background extends World
     public static int difficulty;
     public static int players;
     public static String World;
+    public static boolean Muted;
+    public static int volume;
     public String key;
     Snake player = new Snake();
     EnemySnake enemy = new EnemySnake();
+    private GreenfootSound music = new GreenfootSound("background.mp3");
+    
 
     /**
      * Constructor for objects of class Background.
@@ -32,16 +36,18 @@ public class Background extends World
         setPaintOrder(Snake.class, EnemySnake.class, SnakeBody.class, EnemySnakeBody.class);
         World=null;
         Paused=false;
+        Muted=false;
         prepareInitial();
     }
     
     private void prepareInitial(){
          SnakeBody.end_timer = 50;
          SnakeBody.shield = 0;
-        
+         Snake.Health = 100;
+         EnemySnakeBody.armour = 0;
          Background.playerSize = 11;
          Background.foodSize=16;
-         
+         Image();
     }
     
     private void prepareSnakeGame()

@@ -15,6 +15,7 @@ public class EnemySnake extends Actor
     private int x;
     public static int PlayerIsActive=100;
     public int absoluteDiff;
+    public int speed=5;
 
     /**
      * Constructor for objects of class Enemy
@@ -42,7 +43,7 @@ public class EnemySnake extends Actor
         move(speed);
         PlayerIsActive--;
         //Detect player interaction
-        if(Back.players==2)
+        if(Background.players==2)
         {
             if(Greenfoot.isKeyDown("D"))
             {
@@ -78,7 +79,9 @@ public class EnemySnake extends Actor
     {
         //Detect if the Enemy is within the location it beleives to be the food and if it intersects with the food
 
-        if (absoluteDiff <=25 && food!=null)
+        //if (absoluteDiff <=25 && food!=null)
+
+        if (absoluteDiff <=25)
         {
             return true;
         }
