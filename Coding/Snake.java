@@ -139,7 +139,31 @@ public class Snake extends Actor
             Health=0;
         }
         
-        //logic when snake touches enemy to be added
+        //when player snake touches the enemy or vice versa
+        EnemySnake enemy = (EnemySnake) getOneIntersectingObject(EnemySnake.class);
+        EnemySnakeBody enemybody = (EnemySnakeBody) getOneIntersectingObject(EnemySnakeBody.class);
+        if (enemy != null)
+        {
+            if(Armour>0)
+            {
+                armourCount++;
+                Armour--;
+                if(armourCount>=armourEfficency)
+                {
+                    Health--;
+                    armourCount=0;
+                }
+            }else{
+                Health--;
+            }
+        }
+        if(Health<=0)
+        {
+            //SnakeBody.killtimer=1; //dependency to be added in SnakeBody class
+            getWorld().removeObject(this);
+        }
+        
+        
     }
 
     //logic for controlling the snake
