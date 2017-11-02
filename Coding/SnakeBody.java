@@ -30,8 +30,9 @@ public class SnakeBody extends Actor
     public void action() 
     {
         //Check whether background is not paused and then only proceed
-        if(!Background.Paused)
-        {
+        if(Background.Paused)
+        {}
+        else{
             Image();
             Snake_Attacked();
             count++;
@@ -41,6 +42,32 @@ public class SnakeBody extends Actor
     public void Snake_Attacked()
     {
         //To handle parameters when snake is attacked
+        
+        if(end_timer-count>12)
+        {
+            EnemySnake enemy = (EnemySnake) getOneIntersectingObject(EnemySnake.class);
+            if(enemy!=null)
+            {
+                if(getImage().getWidth()==Background.playerSize && getImage().getHeight()==Background.playerSize)
+                {
+                    
+                
+                    if(Snake.Armour>0)
+                    {
+                        Snake.armourCount++;
+                        Snake.Armour--;
+                        if(Snake.armourCount>=Snake.armourEfficency)
+                        {
+                            Snake.Health--;
+                            Snake.armourCount=0;
+                        }
+                    }else{
+                        Snake.Health--;
+                    }
+                }
+            }
+        }
+        
     }
     
     public void Image()
