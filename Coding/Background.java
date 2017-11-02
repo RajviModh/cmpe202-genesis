@@ -45,6 +45,7 @@ public class Background extends World
          SnakeBody.shield = 0;
          Snake.Health = 100;
          EnemySnakeBody.armour = 0;
+         
          Background.playerSize = 11;
          Background.foodSize=16;
          Image();
