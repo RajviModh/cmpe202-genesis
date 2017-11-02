@@ -1,5 +1,7 @@
 import greenfoot.*;
-import java.awt.Color;   // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.Color;
+import greenfoot.Font;
+   // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class Snake here.
@@ -118,6 +120,32 @@ public class Snake extends Actor
     {
         return true ;
     }
+    
+    public void faceTarget()  
+    {
+        if(target!=null)
+        {   
+            //Rationalize the needed angle
+            if(angleDiff<0)
+            {
+                angleDiff=angleDiff+360;
+            }
+            if(angleDiff>360)
+            {
+                angleDiff=angleDiff-360;
+            }
+            //Turn to the needed angle
+            if(angleDiff>180)
+            {
+                turn(5);
+            }else{
+                if(angleDiff<=180 && angleDiff!=0)
+                {
+                    turn(-5);
+                }
+            } 
+        }
+    }
 
     //logic for health checking and regaining or losing based on position
     //and enemy interaction.
@@ -169,7 +197,29 @@ public class Snake extends Actor
     //logic for controlling the snake
     public void controls()
     {
-    
+        move(speed);
+        PlayerIsActive--;
+        //Detect player interaction
+        if(Greenfoot.isKeyDown("right"))
+        {
+            turn(5);
+            PlayerIsActive=100;
+        }
+        if(Greenfoot.isKeyDown("left"))
+        {
+            turn(-5);
+            PlayerIsActive=100;
+        }
+        //Determine if the player is inactive
+        if(Background.players==0)
+        {
+            if(PlayerIsActive<=0)
+            {
+                determineTarget();
+                determineTargetLocation();
+                faceTarget();
+            }
+        }
     }
     
     //for adding segments on the timer
@@ -205,6 +255,15 @@ public class Snake extends Actor
             setLocation(getX(),600);
         }
     }
-
+    
+    public void determineTarget()
+    {
+        
+    }
+     
+    public void determineTargetLocation()
+    {
+        
+    }
      
 }
