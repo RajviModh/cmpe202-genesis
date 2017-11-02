@@ -25,7 +25,6 @@ public class EnemySnake extends Actor
     public static int armourEfficency;
     public boolean aroundfood;
     public int foodCount;
-    public int targetSet;
     public int ranX;
     public int ranY;
 
