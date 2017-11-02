@@ -16,6 +16,8 @@ public class EnemySnake extends Actor
     public static int PlayerIsActive=100;
     public int absoluteDiff;
     public int speed=5;
+    public String target;
+    public int angleDiff;
 
     /**
      * Constructor for objects of class Enemy
@@ -88,6 +90,31 @@ public class EnemySnake extends Actor
         return false;
 
     }
+    public void faceTarget()
+    {
+        if(target!=null)
+        {   
+            //Rationalize the needed angle
+            if(angleDiff<0)
+            {
+                angleDiff=angleDiff+360;
+            }
+            if(angleDiff>360)
+            {
+                angleDiff=angleDiff-360;
+            }
+            //Turn to the needed angle
+            if(angleDiff>180)
+            {
+                turn(5);
+            }else{
+                if(angleDiff<=180 && angleDiff!=0)
+                {
+                    turn(-5);
+                }
+            } 
+        }
+    }    
     
     public void Life()
     {
