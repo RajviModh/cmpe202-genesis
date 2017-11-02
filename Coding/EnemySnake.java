@@ -16,6 +16,9 @@ public class EnemySnake extends Actor
     public static int PlayerIsActive=100;
     public int absoluteDiff;
     public int speed=5;
+    public String target;
+    public int angleDiff;
+    public static int offset;
 
     /**
      * Constructor for objects of class Enemy
@@ -75,6 +78,22 @@ public class EnemySnake extends Actor
        
     }
     
+    public void difficulty()
+    {
+        if(Background.difficulty==1)
+        {
+            offset=50;
+        }
+        if(Background.difficulty==2)
+        {
+            offset=35;
+        }
+        if(Background.difficulty==3)
+        {
+            offset=1;
+        }
+    }
+    
      public boolean isFoodPresent()
     {
         //Detect if the Enemy is within the location it beleives to be the food and if it intersects with the food
@@ -88,6 +107,31 @@ public class EnemySnake extends Actor
         return false;
 
     }
+    public void faceTarget()
+    {
+        if(target!=null)
+        {   
+            //Rationalize the needed angle
+            if(angleDiff<0)
+            {
+                angleDiff=angleDiff+360;
+            }
+            if(angleDiff>360)
+            {
+                angleDiff=angleDiff-360;
+            }
+            //Turn to the needed angle
+            if(angleDiff>180)
+            {
+                turn(5);
+            }else{
+                if(angleDiff<=180 && angleDiff!=0)
+                {
+                    turn(-5);
+                }
+            } 
+        }
+    }    
     
     public void Life()
     {
