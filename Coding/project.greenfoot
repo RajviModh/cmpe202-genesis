@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Tue Oct 31 23:25:57 PDT 2017
+#Wed Nov 01 23:26:28 PDT 2017
 dependency9.type=UsesDependency
 target4.type=ClassTarget
 dependency3.from=Background
@@ -44,7 +44,7 @@ dependency8.to=Background
 dependency6.type=UsesDependency
 target1.type=ClassTarget
 dependency9.to=Background
-editor.swing.0.width=701
+editor.swing.0.width=700
 editor.swing.0.y=0
 target1.typeParameters=
 editor.swing.0.x=0
