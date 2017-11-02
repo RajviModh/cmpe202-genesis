@@ -16,8 +16,13 @@ public class EnemySnakeBody extends Actor
      * Act - do whatever the EnemySnakeBody wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-
+    public static int killtimer;
+    public int count;
+    public int resize=Background.playerSize;
     public static int armour;
+    private int size;
+    public int bloodcount;
+    public static int colorCount;
     public int armourDiffrence;
     GreenfootImage Body = new GreenfootImage(Background.playerSize, Background.playerSize);
     
@@ -85,7 +90,7 @@ public class EnemySnakeBody extends Actor
             case 7:
             Body.setColor(new Color(14,191,233));
             Body.drawOval(0, 0, Background.playerSize-1, Background.playerSize-1);
-            Body.drawOval(0, 0, Background.playerSize-2, Back.playerSize-2);
+            Body.drawOval(0, 0, Background.playerSize-2, Background.playerSize-2);
             break;
     } 
      

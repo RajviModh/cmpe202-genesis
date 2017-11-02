@@ -45,7 +45,8 @@ public class Background extends World
          SnakeBody.shield = 0;
          Snake.Health = 100;
          EnemySnakeBody.armour = 0;
-         
+         EnemySnakeBody.killtimer = 50;
+         EnemySnake.Health=100;
          Background.playerSize = 11;
          Background.foodSize=16;
          Image();
@@ -59,7 +60,9 @@ public class Background extends World
         removeObjects(objects); 
         SnakeBody.end_timer = 50;
         SnakeBody.shield = 0;
-        
+        EnemySnakeBody.killtimer=50;
+        EnemySnakeBody.armour=0;
+        EnemySnake.Health=100;
         Background.playerSize = 11;
         Background.foodSize=16;
         addObject(player, 400, 450);
@@ -75,6 +78,11 @@ public class Background extends World
             prepareSnakeGame();
             start=0;
         }
+        Mute();
+        music.playLoop();
+        reset();
+        
+        Pause();
     }
     
     public void Pause(){
