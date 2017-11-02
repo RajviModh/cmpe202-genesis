@@ -19,6 +19,14 @@ public class EnemySnake extends Actor
     public String target;
     public int angleDiff;
     public static int offset;
+    public static int Health;
+    public static int Armour;
+    public static int armourCount;
+    public static int armourEfficency;
+    public boolean aroundfood;
+    public int foodCount;
+    public int ranX;
+    public int ranY;
 
     /**
      * Constructor for objects of class Enemy
