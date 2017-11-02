@@ -18,6 +18,7 @@ public class EnemySnake extends Actor
     public int speed=5;
     public String target;
     public int angleDiff;
+    public static int offset;
 
     /**
      * Constructor for objects of class Enemy
@@ -75,6 +76,22 @@ public class EnemySnake extends Actor
     {
         //Determine the Target Food 
        
+    }
+    
+    public void difficulty()
+    {
+        if(Background.difficulty==1)
+        {
+            offset=50;
+        }
+        if(Background.difficulty==2)
+        {
+            offset=35;
+        }
+        if(Background.difficulty==3)
+        {
+            offset=1;
+        }
     }
     
      public boolean isFoodPresent()
