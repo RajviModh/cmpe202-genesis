@@ -27,10 +27,17 @@ public class Announcement extends Actor
     public static int statementPriority;
     public static int statementPriorityQueue;
     public int statementTimer;
-    public static int Starting;
+    public static int initial;
     public int startCount=0;
     GreenfootImage start = new GreenfootImage(50,50);
     GreenfootSound sound;
+    
+    //Constructor for announcement class
+    public Announcement()
+    {
+        getImage().clear();
+        initial=0;
+    }
     
     
     /**
@@ -41,4 +48,9 @@ public class Announcement extends Actor
     {
         // Add your action code here.
     }    
+    
+    public void initiate()
+    {
+        //This method will have code for initiating sounds
+    }
 }

@@ -72,9 +72,27 @@ public class SnakeBody extends Actor
     
     public void Image()
     {
+        if(end_timer>=125)
+        {
         shield++;
         Snake.Armour=1000;
         end_timer=end_timer-75;
+        Announcement.statementQueue="SHIELD UPGRADED :)";
+        Announcement.statementTimeQueue=100;
+        Announcement.statementSizeQueue=40;
+        Announcement.statementColorRQueue=0;
+        Announcement.statementColorGQueue=0;
+        Announcement.statementColorBQueue=0;
+    }
+    
+          if(shield>0)
+        {
+            if(Snake.Armour<=0)
+            {
+                shield--;
+                Snake.Armour=1000;
+            }
+        }
         //To draw snake based on shield's value
         if(shield==0)
         {
