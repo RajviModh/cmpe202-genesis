@@ -8,6 +8,7 @@ public class SnakeFood extends Actor
 
     public static int x;
     public static int y;
+    int a;
 
     public SnakeFood()
     {
