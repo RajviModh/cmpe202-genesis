@@ -27,6 +27,8 @@ public class EnemySnake extends Actor
     public int foodCount;
     public int ranX;
     public int ranY;
+    public int addTimer=2;
+    public int addCounter;
 
     /**
      * Constructor for objects of class Enemy
@@ -46,6 +48,18 @@ public class EnemySnake extends Actor
     public void act(){
     //main method which calls other methods to perform various operations
     
+    }
+    
+    public void bodyControl()
+    {
+        //Add new body segments on a timer
+        addCounter++;
+        if(addCounter==addTimer)
+        {
+            EnemySnakeBody enemysnakebody = new EnemySnakeBody();
+            getWorld().addObject(enemysnakebody, getX(), getY());
+            addCounter=0;
+        }
     }
     public void controls()
     {
