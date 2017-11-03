@@ -72,6 +72,9 @@ public class SnakeBody extends Actor
     
     public void Image()
     {
+        shield++;
+        Snake.Armour=1000;
+        end_timer=end_timer-75;
         //To draw snake based on shield's value
         if(shield==0)
         {
