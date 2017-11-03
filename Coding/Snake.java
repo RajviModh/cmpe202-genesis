@@ -47,7 +47,8 @@ public class Snake extends Actor
     public int yDiff;
     public int xDiff;
     public int locationyDiff; 
-    
+    public int locationxDiff;
+   
     public int absoluteDiff;
     
     public int present;
@@ -258,12 +259,43 @@ public class Snake extends Actor
     
     public void determineTarget()
     {
-        
+        if(getWorld().getObjects(EnemySnake.class).isEmpty())
+        {
+            target="FOOD";
+        }else{
+            if(Primary>=1)
+            {
+                target="ENEMY";
+                Primary--;
+            }else{
+                target="FOOD";
+            }
+        }
     }
      
     public void determineTargetLocation()
     {
-        
+        if(target!=null)
+        {
+            if(target=="ENEMY")
+            {
+                EnemySnake enemy=(EnemySnake) getWorld().getObjects(EnemySnake.class).get(0);
+                xDiff = enemy.getX() - getX();  
+                yDiff = enemy.getY() - getY();  
+                locationxDiff= getX()- enemy.getX();
+                locationyDiff= getY()- enemy.getY();
+            }
+            if(target=="FOOD")
+            {
+                //to be implemented
+                
+            }
+            angle = Math.toDegrees(Math.atan2(yDiff, xDiff));  
+            angleDiff = getRotation() - (int)Math.round(angle);
+            absoluteDiff = (int)Math.sqrt(xDiff*xDiff+yDiff*yDiff);
+        }
     }
+    
+    
      
 }
