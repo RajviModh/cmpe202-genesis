@@ -2,10 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*; 
 import java.awt.*; 
 /**
- * Write a description of class SnakeBody here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Neha Jethani) 
  */
 public class SnakeBody extends Actor
 {
@@ -14,6 +11,8 @@ public class SnakeBody extends Actor
     public int count;
     public int new_size=Background.playerSize; 
     public static int shield;
+    private int size;
+    public static int shade_count;
     public static int x=210;
     public static int y=210;
     public static int z=210;
@@ -30,27 +29,94 @@ public class SnakeBody extends Actor
     
     public void action() 
     {
-        // Add your action code here.
+        //Check whether background is not paused and then only proceed
+        if(Background.Paused)
+        {}
+        else{
+            Image();
+            Snake_Attacked();
+            count++;
+        }
     }    
     
     public void Snake_Attacked()
     {
         //To handle parameters when snake is attacked
+        
+        if(end_timer-count>12)
+        {
+            EnemySnake enemy = (EnemySnake) getOneIntersectingObject(EnemySnake.class);
+            if(enemy!=null)
+            {
+                if(getImage().getWidth()==Background.playerSize && getImage().getHeight()==Background.playerSize)
+                {
+                    
+                
+                    if(Snake.Armour>0)
+                    {
+                        Snake.armourCount++;
+                        Snake.Armour--;
+                        if(Snake.armourCount>=Snake.armourEfficency)
+                        {
+                            Snake.Health--;
+                            Snake.armourCount=0;
+                        }
+                    }else{
+                        Snake.Health--;
+                    }
+                }
+            }
+        }
+        
     }
     
     public void Image()
     {
+        shield++;
+        Snake.Armour=1000;
+        end_timer=end_timer-75;
         //To draw snake based on shield's value
         if(shield==0)
-        {}
+        {
+            Snake.armourEfficency=shield_diffrence+3;
+            Snake.Armour = 1000;
+            setImage(Body);
+        }
         else if(shield==1)
-        {}
+        {
+            Snake.armourEfficency=shield_diffrence*2+2;
+            setImage(Body);
+        }
         else if(shield==2)
-        {}
+        {
+            Snake.armourEfficency=shield_diffrence*3+1;
+            setImage(Body);
+        }
         else if(shield==3)
-        {}
+        {
+            Snake.armourEfficency=shield_diffrence*4;
+            setImage(Body);
+        }
         else if(shield==4)
-        {}
+        {
+            Snake.armourEfficency=shield_diffrence*5;
+            setImage(Body);
+        }
+        else if(shield==5)
+        {
+            Snake.armourEfficency=shield_diffrence*6;
+            setImage(Body);
+        }
+        else if(shield==6)
+        {
+            Snake.armourEfficency=shield_diffrence*7;
+            setImage(Body);
+        }
+        else if(shield==7)
+        {
+            Snake.armourEfficency=shield_diffrence*8;
+            setImage(Body);
+        }
         if(end_timer>=120)
         {
             shield++;

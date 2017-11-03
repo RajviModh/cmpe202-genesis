@@ -17,9 +17,13 @@ public class Background extends World
     public static int difficulty;
     public static int players;
     public static String World;
+    public static boolean Muted;
+    public static int volume;
     public String key;
     Snake player = new Snake();
     EnemySnake enemy = new EnemySnake();
+    private GreenfootSound music = new GreenfootSound("background.mp3");
+    
 
     /**
      * Constructor for objects of class Background.
@@ -32,31 +36,41 @@ public class Background extends World
         setPaintOrder(Snake.class, EnemySnake.class, SnakeBody.class, EnemySnakeBody.class);
         World=null;
         Paused=false;
+        Muted=false;
         prepareInitial();
     }
     
     private void prepareInitial(){
          SnakeBody.end_timer = 50;
          SnakeBody.shield = 0;
-        
+         Snake.Health = 100;
+         EnemySnakeBody.armour = 0;
+         EnemySnakeBody.killtimer = 50;
+         EnemySnake.Health=100;
          Background.playerSize = 11;
          Background.foodSize=16;
-         
+         Image();
     }
     
     private void prepareSnakeGame()
     {
         Snake player = new Snake();
         EnemySnake enemy = new EnemySnake();
+        Announcement announce = new Announcement();
+        SnakeFood sfood = new SnakeFood();
         List objects = getObjects(null);  
         removeObjects(objects); 
         SnakeBody.end_timer = 50;
         SnakeBody.shield = 0;
-        
+        EnemySnakeBody.killtimer=50;
+        EnemySnakeBody.armour=0;
+        EnemySnake.Health=100;
         Background.playerSize = 11;
         Background.foodSize=16;
         addObject(player, 400, 450);
         addObject(enemy, 400, 150);
+        addObject(announce, 400, 300);
+        addObject(sfood, 600, 300);
     // This method will be used to make initial setup of the game
     }
     
@@ -68,6 +82,11 @@ public class Background extends World
             prepareSnakeGame();
             start=0;
         }
+        Mute();
+        music.playLoop();
+        reset();
+        announce();
+        Pause();
     }
     
     public void Pause(){
@@ -103,6 +122,81 @@ public class Background extends World
         setBackground(image);
     }
     
+    public void Mute()
+    {
+        music.setVolume(volume);
+        if("m".equals(key))  
+        {
+            if(Muted)
+            {
+                Muted=false;
+            }else{
+                Muted=true;
+            }
+        }
+        if(Muted)
+        {
+            volume=0;
+        }else{
+            volume=50;
+        }
+    }
+    
+    public void addNew()
+    {
+        Snake player = new Snake();
+        EnemySnake enemy = new EnemySnake();
+        if("a".equals(key))
+        {
+            if(getObjects(Snake.class).isEmpty())
+            {
+                addObject(player, 400, 450);
+            }
+            if(getObjects(EnemySnake.class).isEmpty())
+            {
+                addObject(enemy, 400, 150);
+            }
+        }
+    }
+    public void announce()
+    {
+        if(World=="GAME")
+        {
+            if(getObjects(Snake.class).isEmpty())
+            {
+                Announcement.statementQueue="Red Snake Wins!";
+                Announcement.statementTimeQueue=100;
+                Announcement.statementSizeQueue=48;
+                Announcement.statementColorRQueue=210;
+                Announcement.statementColorGQueue=0;
+                Announcement.statementColorBQueue=0;
+                if ("v".equals(key))  
+                {
+                    SnakeBody.end_timer=50;
+                    SnakeBody.shield=0;
+                    Snake.Health=100;
+                    addObject(player, 400, 450);
+                }
+            }
+            if(getObjects(EnemySnake.class).isEmpty())
+            {
+                Announcement.statementQueue="Black Snake Wins!";
+                Announcement.statementTimeQueue=100;
+                Announcement.statementSizeQueue=48;
+                Announcement.statementColorRQueue=0;
+                Announcement.statementColorGQueue=0;
+                Announcement.statementColorBQueue=0;
+                if ("v".equals(key))  
+                {
+                    EnemySnakeBody.killtimer=50;
+                    EnemySnakeBody.armour=0;
+                    EnemySnake.Health=100;
+                    addObject(enemy, 400, 150);
+                    
+                }
+            }
+        }
+    }
     
     
     
