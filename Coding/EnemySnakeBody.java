@@ -90,6 +90,7 @@ public class EnemySnakeBody extends Actor
             case 7:
             Body.setColor(new Color(14,191,233));
             Body.drawOval(0, 0, Background.playerSize-1, Background.playerSize-1);
+             Body.setColor(new Color(210,210,210));
             Body.drawOval(0, 0, Background.playerSize-2, Background.playerSize-2);
             break;
     } 
@@ -116,6 +117,60 @@ public void Image()
     }
     else{
             armourDiffrence=2;
+        }
+    if(killtimer-count<=12)
+        {
+            if(resize<1)
+            {
+                resize=1;
+            }
+            resize--;
+        }
+    if(armour==0)
+        {
+            EnemySnake.armourEfficency=armourDiffrence+3;
+            EnemySnake.Armour=1000;
+            setImage(Body);
+        }
+    if(armour==1)
+        {
+            EnemySnake.armourEfficency=armourDiffrence*2+2;
+            setImage(Body);
+        }
+    if(armour==2)
+        {
+            EnemySnake.armourEfficency=armourDiffrence*3+1;
+            setImage(Body);
+        }
+    if(armour==3)
+        {
+            EnemySnake.armourEfficency=armourDiffrence*4;
+            setImage(Body);
+        }
+        if(armour==4)
+        {
+            EnemySnake.armourEfficency=armourDiffrence*5;
+            setImage(Body);
+        }
+        if(armour==5)
+        {
+            EnemySnake.armourEfficency=armourDiffrence*6;
+            setImage(Body);
+        }
+        if(armour==6)
+        {
+            EnemySnake.armourEfficency=armourDiffrence*7;
+            setImage(Body);
+        }
+        if(armour==7)
+        {
+            EnemySnake.armourEfficency=armourDiffrence*8;
+            setImage(Body);
+        }
+        if(armour==8)
+        {
+            EnemySnake.armourEfficency=armourDiffrence*9;
+            colorCount++;
         }
 }
 }
