@@ -23,6 +23,9 @@ public class EnemySnakeBody extends Actor
     private int size;
     public int bloodcount;
     public static int colorCount;
+    public static int x=210;
+    public static int y=210;
+    public static int z=210;
     public int armourDiffrence;
     GreenfootImage Body = new GreenfootImage(Background.playerSize, Background.playerSize);
     
@@ -118,6 +121,18 @@ public void Image()
     else{
             armourDiffrence=2;
         }
+    if(killtimer>=125)
+        {
+            armour++;
+            EnemySnake.Armour=1000;
+            killtimer=killtimer-75;
+            Announcement.statementQueue="ARMOUR UPGRADED!";
+            Announcement.statementTimeQueue=100;
+            Announcement.statementSizeQueue=40;
+            Announcement.statementColorRQueue=210;
+            Announcement.statementColorGQueue=0;
+            Announcement.statementColorBQueue=0;
+        }
     if(killtimer-count<=12)
         {
             if(resize<1)
@@ -171,6 +186,52 @@ public void Image()
         {
             EnemySnake.armourEfficency=armourDiffrence*9;
             colorCount++;
+        if(colorCount>=750)
+            {
+                x=Greenfoot.getRandomNumber(255);
+                y=Greenfoot.getRandomNumber(255);
+                z=Greenfoot.getRandomNumber(255);
+                colorCount=0;
+            }
+            if(count%2==0)
+            {
+                Body.clear();
+                Body.setColor(new Color(255,0,0));
+                Body.fillOval(0, 0, Background.playerSize-2, Background.playerSize-2);
+                Body.setColor(new Color(14,191,233));
+                Body.drawOval(0, 0, Background.playerSize-1, Background.playerSize-1);
+                Body.setColor(new Color(x,y,z));
+                Body.drawOval(0, 0, Background.playerSize-2, Background.playerSize-2);
+            }else{
+                Body.clear();
+                Body.setColor(new Color(255,0,0));
+                Body.fillOval(0, 0, Background.playerSize-2, Background.playerSize-2);
+                Body.setColor(new Color(14,191,233));
+                Body.drawOval(0, 0, Background.playerSize-2, Background.playerSize-2);
+                Body.setColor(new Color(x,y,z));
+                Body.drawOval(0, 0, Background.playerSize-1, Background.playerSize-1);
+            }
+            setImage(Body);
         }
+         if(armour>8)
+        {
+            armour=8;
+        }
+        if(killtimer>=125)
+        {
+            armour++;
+            killtimer=killtimer-75;
+        }
+        if(killtimer-count<=Background.playerSize)
+        {
+            if(getImage().getHeight()<=1 && getImage().getWidth()<=1)
+            {
+                getWorld().removeObject(this);
+            }else{
+                getImage().scale(getImage().getHeight()-1, getImage().getWidth()-1);
+            }
+        }
+        
+       
 }
 }
