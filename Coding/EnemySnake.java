@@ -30,6 +30,7 @@ public class EnemySnake extends Actor
     public int addTimer=2;
     public int addCounter;
 
+
     /**
      * Constructor for objects of class Enemy
      */
@@ -85,7 +86,13 @@ public class EnemySnake extends Actor
     }
       public void aroundFood()
     {
-        
+         SnakeFood snakefood=(SnakeFood) getWorld().getObjects(SnakeFood.class).get(0);
+        if(getX()- snakefood.getX()<=100 && getX()- snakefood.getX()>=-100 && getY()- snakefood.getY()<=100 && getY()- snakefood.getY()>=-100 && target=="FOOD")
+        {
+            aroundfood=true;
+        }else{
+            aroundfood=false;
+        }
         
     }
     
