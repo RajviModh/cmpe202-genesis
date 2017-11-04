@@ -26,3 +26,8 @@ To counter the time-consuming, high risk approach, this value encourages to keep
 	1.	The team started with creating UML diagram like Activity Diagram, Use Case etc so that team can simply understand the flow of the game at later stage.
 	2. 	After dividing the modules and creating diagrams, team started implementing the modules of the game like adding actors and their methods.
 	
+	•	Summary (11/4/2017) Week #6
+	1. 	After implementing the actors, the team divided the classes among the members to work upon to reduce complexity.
+	2. 	By dividing the classes, the members focussed on the assigned class only to maintain simplicity and used GitHub for integrating the code everytime the changes were made to the class.
+
+	
