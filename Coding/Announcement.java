@@ -52,5 +52,11 @@ public class Announcement extends Actor
     public void initiate()
     {
         //This method will have code for initiating sounds
+        statement=statementQueue;
+        statementQueue=null;
+        statementTime=statementTimeQueue;
+        statementTimeQueue=0;
+        statementSize=statementSizeQueue;
+        statementSizeQueue=0;
     }
 }
