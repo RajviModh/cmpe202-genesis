@@ -29,6 +29,10 @@ public class EnemySnake extends Actor
     public int ranY;
     public int addTimer=2;
     public int addCounter;
+    public int foodEaten=0;
+    public int Primary;
+    
+    GreenfootSound sound;
 
 
     /**
@@ -99,6 +103,23 @@ public class EnemySnake extends Actor
      public void eat()
     {
         //Called when the snake eats the food
+         SnakeFood snakefood = (SnakeFood) getOneIntersectingObject(SnakeFood.class);
+        if (snakefood != null) {
+            sound = new GreenfootSound ("eat.mp3");
+            sound.setVolume(Background.volume);
+            sound.play();
+            foodEaten++;
+            Health+=10;
+            EnemySnakeBody.killtimer=EnemySnakeBody.killtimer+15;
+
+            if(Health>50)
+            {
+                if(foodEaten%5==0)
+                {
+                    Primary=200;
+                }
+            }
+        }
     }
     
      public void findTarget()
