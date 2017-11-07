@@ -107,19 +107,54 @@ public class Snake extends Actor
     
     public void mainMenu()
     {
-        
+        move(speed);
+        Location();
+        bodyControl();
+        //nullTarget(); //to be added
+        faceTarget();
+        Snake player = (Snake) getOneIntersectingObject(Snake.class);
+        if(player!=null)
+        {
+            //to be implemented
+        }
+        killNullCount++;
+        if(killNullCount>=1000)
+        {
+            getWorld().removeObject(this);
+        }
     }
     
     //logic for snake eating food and changes to be made afterwards
     public void eat()
     {
-
+        SnakeFood food = (SnakeFood) getOneIntersectingObject(SnakeFood.class);
+        if (food != null) {
+            sound = new GreenfootSound ("eat.mp3");
+            sound.setVolume(Background.volume);
+            sound.play();
+            foodEaten++;
+            Health=Health+10;
+            SnakeBody.end_timer=SnakeBody.end_timer+15;
+            //PlayerHub.score+=15; dependency
+            if(Health>50)
+            {
+                if(foodEaten%5==0)
+                {
+                    Primary=200;
+                }
+            }
+        }
     }
     
     //for checking presence of food
     public boolean foodPresent()
     {
-        return true ;
+        SnakeFood food = (SnakeFood) getOneIntersectingObject(SnakeFood.class);
+        if (absoluteDiff <=25 && food!=null)
+        {
+            return true;
+        }
+        return false;
     }
     
     public void faceTarget()  
@@ -188,7 +223,7 @@ public class Snake extends Actor
         }
         if(Health<=0)
         {
-            //SnakeBody.killtimer=1; //dependency to be added in SnakeBody class
+            SnakeBody.end_timer=1; //dependency to be added in SnakeBody class
             getWorld().removeObject(this);
         }
         
@@ -288,7 +323,11 @@ public class Snake extends Actor
             if(target=="FOOD")
             {
                 //to be implemented
-                
+                SnakeFood food=(SnakeFood) getWorld().getObjects(SnakeFood.class).get(0);
+                xDiff = food.getX() - getX();  
+                yDiff = food.getY() - getY();  
+                locationxDiff= getX()- food.getX();
+                locationyDiff= getY()- food.getY();
             }
             angle = Math.toDegrees(Math.atan2(yDiff, xDiff));  
             angleDiff = getRotation() - (int)Math.round(angle);

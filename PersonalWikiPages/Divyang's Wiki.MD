@@ -37,6 +37,7 @@
 1) After decisidng the final game, team starts taking feedback about the features that must be included for making it more interesting for the user.
 2) The team is taking feedbacks from each other about the coding styles and design patterns to be implemented. 
 
+
 **Summary (11/04/2017)**
 1) Team is taking feedback from each other about finalizing design patterns to be implemented in each module.
 2) Team is also taking feedback from potential users about the featurs they like the most or they want to change.
