@@ -50,8 +50,8 @@ public class SnakeBody extends Actor
             {
                 if(getImage().getWidth()==Background.playerSize && getImage().getHeight()==Background.playerSize)
                 {
-                    
-                
+                   Blood blood = new Blood(); 
+                   getWorld().addObject(blood,getX(),getY());
                     if(Snake.Armour>0)
                     {
                         Snake.armourCount++;
