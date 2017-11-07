@@ -110,7 +110,7 @@ public class Snake extends Actor
         move(speed);
         Location();
         bodyControl();
-        //nullTarget(); //to be added
+        nullTarget(); //to be added
         faceTarget();
         Snake player = (Snake) getOneIntersectingObject(Snake.class);
         if(player!=null)
@@ -155,6 +155,39 @@ public class Snake extends Actor
             return true;
         }
         return false;
+    }
+    
+    public void nullTarget()
+    {
+        if(xDiff<=20&&yDiff<=20)
+        {
+            nullX=Greenfoot.getRandomNumber(600)+100;
+            nullY=Greenfoot.getRandomNumber(75)+175;
+        }
+        xDiff = nullX - getX();  
+        yDiff = nullY - getY();  
+        locationxDiff= getX()- nullX;
+        locationyDiff= getY()- nullY;
+        angle = Math.toDegrees(Math.atan2(yDiff, xDiff));  
+        angleDiff = getRotation() - (int)Math.round(angle);
+        absoluteDiff = (int)Math.sqrt(xDiff*xDiff+yDiff*yDiff);
+        if(angleDiff<0)
+        {
+            angleDiff=angleDiff+360;
+        }
+        if(angleDiff>360)
+        {
+            angleDiff=angleDiff-360;
+        }
+        if(angleDiff>180)
+        {
+            turn(5);
+        }else{
+            if(angleDiff<=180 && angleDiff!=0)
+            {
+                turn(-5);
+            }
+        } 
     }
     
     public void faceTarget()  
