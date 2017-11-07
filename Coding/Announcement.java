@@ -58,5 +58,14 @@ public class Announcement extends Actor
         statementTimeQueue=0;
         statementSize=statementSizeQueue;
         statementSizeQueue=0;
+        statementColorR=statementColorRQueue;
+        statementColorRQueue=0;
+        statementColorG=statementColorGQueue;
+        statementColorGQueue=0;
+        statementColorB=statementColorBQueue;
+        statementColorBQueue=0;
+        statementPriority=statementPriorityQueue;
+        statementPriorityQueue=1000;
+        statementTimer=0;
     }
 }
