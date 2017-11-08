@@ -53,7 +53,7 @@ public void Attacked()
             Snake player = (Snake) getOneIntersectingObject(Snake.class);
             if(player!=null)
             {
-                if(getImage().getWidth()==Background.playerSize && getImage().getHeight()==Back.playerSize)
+                if(getImage().getWidth()==Background.playerSize && getImage().getHeight()==Background.playerSize)
                 {
                     Blood blood = new Blood();
                     getWorld().addObject(blood,getX(),getY());
