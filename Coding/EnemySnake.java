@@ -6,7 +6,7 @@ import java.lang.Math;
 /**
  * Write a description of class Enemy here.
  * 
- * @author (your name) 
+ * @author Keval Shah
  * @version (a version number or a date)
  */
 public class EnemySnake extends Actor
@@ -31,6 +31,7 @@ public class EnemySnake extends Actor
     public int addCounter;
     public int foodEaten=0;
     public int Primary;
+    public int Regeneration;
     
     GreenfootSound sound;
 
@@ -52,7 +53,20 @@ public class EnemySnake extends Actor
     
     public void act(){
     //main method which calls other methods to perform various operations
-    
+       if(Background.Paused)
+        {
+        }else{
+            if(Background.World=="GAME")
+            {
+                aroundFood();
+                controls();
+                eat();
+                Location();
+                bodyControl();
+                isFoodPresent();
+                Life();
+            }
+        }  
     }
     
     public void bodyControl()
@@ -125,6 +139,18 @@ public class EnemySnake extends Actor
      public void findTarget()
     {
         //Determine the Target Food 
+              if(getWorld().getObjects(Snake.class).isEmpty())
+        {
+            target="FOOD";
+        }else{
+            if(Primary>=1)
+            {
+                target="PLAYER";
+                Primary--;
+            }else{
+                target="FOOD";
+            }
+        }
        
     }
     
@@ -186,12 +212,52 @@ public class EnemySnake extends Actor
     public void Life()
     {
        //Handles the XP points, health and life bars 
+       
+       //Health regeneration
+        Snake snake = (Snake) getOneIntersectingObject(Snake.class);
+        SnakeBody snakebody = (SnakeBody) getOneIntersectingObject(SnakeBody.class);
+        Regeneration++;
+        if(Regeneration==50)
+        {
+            Health+=1;
+            Regeneration=0;
+        }
+        if(Health>100)
+        {
+            Health=100;
+        }
+        //Rationalize the health
+        if(Health<0)
+        {
+            Health=0;
+        }
+        //Enemy interaction
+        if (snake != null)
+        {
+            if(Armour>0)
+            {
+                armourCount++;
+                Armour--;
+                if(armourCount>=armourEfficency)
+                {
+                    Health--;
+                    armourCount=0;
+                }
+            }else{
+                Health--;
+            }
+        }
+        if(Health<=0)
+        {
+            EnemySnakeBody.killtimer=1;
+            getWorld().removeObject(this);
+        }
     }
     
     public void Location()
     {
         //Move the snake to the inverse side of the screen if on edge
-       if(getX()>100)
+       if(getX()>800)
         {
             setLocation(0,getY());
         }
