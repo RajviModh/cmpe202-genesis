@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.awt.color.*;
+import java.awt.Color;  
+import java.awt.Font;  
 
 /**
  * Write a description of class EnemySnakeHub here.
