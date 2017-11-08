@@ -4,8 +4,7 @@ import java.awt.Font;
 import java.util.Calendar;
 import java.lang.Math;
 /**
- * Write a description of class Enemy here.
- * 
+ * EnemySnake Class * 
  * @author Keval Shah
  * @version (a version number or a date)
  */
