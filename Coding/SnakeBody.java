@@ -1,6 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*; 
 import java.awt.*; 
+import java.util.Calendar; 
 /**
  * @author (Neha Jethani) 
  */
@@ -27,7 +28,7 @@ public class SnakeBody extends Actor
         Image();
     }
     
-    public void action() 
+    public void act() 
     {
         //Check whether background is not paused and then only proceed
         if(Background.Paused)
@@ -93,6 +94,15 @@ public class SnakeBody extends Actor
                 Snake.Armour=1000;
             }
         }
+        
+        if(end_timer-count<=12)
+        {
+            if(new_size<1)
+            {
+                   new_size=1;
+            }
+            new_size--;
+        }
         //To draw snake based on shield's value
         if(shield==0)
         {
@@ -100,46 +110,91 @@ public class SnakeBody extends Actor
             Snake.Armour = 1000;
             setImage(Body);
         }
-        else if(shield==1)
+        if(shield==1)
         {
             Snake.armourEfficency=shield_diffrence*2+2;
             setImage(Body);
         }
-        else if(shield==2)
+        if(shield==2)
         {
             Snake.armourEfficency=shield_diffrence*3+1;
             setImage(Body);
         }
-        else if(shield==3)
+        if(shield==3)
         {
             Snake.armourEfficency=shield_diffrence*4;
             setImage(Body);
         }
-        else if(shield==4)
+        if(shield==4)
         {
             Snake.armourEfficency=shield_diffrence*5;
             setImage(Body);
         }
-        else if(shield==5)
+        if(shield==5)
         {
             Snake.armourEfficency=shield_diffrence*6;
             setImage(Body);
         }
-        else if(shield==6)
+        if(shield==6)
         {
             Snake.armourEfficency=shield_diffrence*7;
             setImage(Body);
         }
-        else if(shield==7)
+        if(shield==7)
         {
             Snake.armourEfficency=shield_diffrence*8;
             setImage(Body);
         }
-        if(end_timer>=120)
+        if(shield==8)
+        {
+            Snake.armourEfficency=shield_diffrence*9;
+            shade_count++;
+            if(shade_count>=1250)
+            {
+                x=Greenfoot.getRandomNumber(255);
+                y=Greenfoot.getRandomNumber(255);
+                z=Greenfoot.getRandomNumber(255);
+                shade_count=0;
+            }
+            if(count%2==0)
+            {
+                Body.clear();
+                Body.setColor(new Color(0,0,0));
+                Body.fillOval(0, 0, Background.playerSize-2, Background.playerSize-2);
+                Body.setColor(new Color(14,191,233));
+                Body.drawOval(0, 0, Background.playerSize-1, Background.playerSize-1);
+                Body.setColor(new Color(x,y,z));
+                Body.drawOval(0, 0, Background.playerSize-2, Background.playerSize-2);
+            }else{
+                Body.clear();
+                Body.setColor(new Color(0,0,0));
+                Body.fillOval(0, 0, Background.playerSize-2, Background.playerSize-2);
+                Body.setColor(new Color(14,191,233));
+                Body.drawOval(0, 0, Background.playerSize-2, Background.playerSize-2);
+                Body.setColor(new Color(x,y,z));
+                Body.drawOval(0, 0, Background.playerSize-1, Background.playerSize-1);
+            }
+            setImage(Body);
+        }
+        if(shield>8)
+        {
+            shield=8;
+        }
+        if(end_timer>=125)
         {
             shield++;
-            end_timer=end_timer-80;
+            end_timer=end_timer-75;
         }
+        if(end_timer-count<=Background.playerSize)
+        {
+            if(getImage().getHeight()<=1 && getImage().getWidth()<=1)
+            {
+                getWorld().removeObject(this);
+            }else{
+                getImage().scale(getImage().getHeight()-1, getImage().getWidth()-1);
+            }
+        }
+        
         
     }
     
