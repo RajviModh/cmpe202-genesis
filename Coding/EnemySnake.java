@@ -31,6 +31,7 @@ public class EnemySnake extends Actor
     public int foodEaten=0;
     public int Primary;
     public int Regeneration;
+    public int targetSet;
     
     GreenfootSound sound;
 
@@ -176,6 +177,20 @@ public class EnemySnake extends Actor
     public void findTargetLocation()
     {
     difficulty();
+    if(targetSet!=1)
+        {
+            if(offset!=0)
+            {
+                if(target=="PLAYER")
+                {
+                    ranX= Greenfoot.getRandomNumber(offset*4)-offset*2;
+                    ranY= Greenfoot.getRandomNumber(offset*4)-offset*2;
+                }else{
+                    ranX= Greenfoot.getRandomNumber(offset*2)-offset;
+                    ranY= Greenfoot.getRandomNumber(offset*2)-offset;
+                }
+            }
+        }
     }
     
     public void difficulty()
