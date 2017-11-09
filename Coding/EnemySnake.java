@@ -99,6 +99,26 @@ public class EnemySnake extends Actor
                 PlayerIsActive=100;
             }
         }
+        
+        //Determine if the player is inactive
+        if(Background.players==1)
+        {
+            if(PlayerIsActive<=0)
+            {
+                if(aroundfood)
+                {
+                    foodCount++;
+                }else{
+                    foodCount=0;
+                }
+                if(foodCount<50)
+                {
+                    findTarget();
+                    findTargetLocation();
+                    faceTarget();
+                }
+            }
+        }
        
     }
       public void aroundFood()
@@ -151,6 +171,11 @@ public class EnemySnake extends Actor
             }
         }
        
+    }
+    
+    public void findTargetLocation()
+    {
+    difficulty();
     }
     
     public void difficulty()
