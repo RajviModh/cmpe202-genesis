@@ -76,5 +76,6 @@ public class Announcement extends Actor
     
    public void start()
     {
+        //start code
     }
 }
