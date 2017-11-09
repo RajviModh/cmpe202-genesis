@@ -1,6 +1,7 @@
 import greenfoot.*;
-import greenfoot.Color;
-import greenfoot.Font;
+import java.awt.Color;  
+import java.awt.Font;  
+
    // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**

@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.*; 
+import greenfoot.MouseInfo;
 /**
  * MainScreen will hve options for selecting player options and difficulty level.
  * 
@@ -29,7 +30,7 @@ public class MainScreen extends Actor
     {
         Background.World="MAINSCREEN";
         sketch();
-        
+        waiting();
     }  
     
     public void waiting(){
@@ -46,13 +47,27 @@ public class MainScreen extends Actor
     {
         image.setColor(new Color(color_r,color_g,color_b));
         image.fillRect(175, 350, 200, 50);
-        image.setColor(new Color(single_player_color,single_player_color,spxsingle_player_color);
+        image.setColor(new Color(single_player_color,single_player_color,single_player_color));
         image.fillRect(180, 355, 190, 40);
         Font font = image.getFont();
         font = font.deriveFont(20.0f);
         image.setFont(font);
         image.setColor(new Color(0,0,255));
         image.drawString("Single Player", 220, 380);
+    }
+    
+    public void play()
+    {
+       
+    }
+    
+        public void title()
+    {
+        image.setColor(new Color(255,255,255));
+        Font font = image.getFont();
+        font = font.deriveFont(42.0f);
+        image.setFont(font);
+        image.drawString("Crazy Snake Project", 250, 100);
     }
     
     public void multiPlayer()
@@ -70,7 +85,8 @@ public class MainScreen extends Actor
     
     public void sketch()
     {
-        
+         getImage().clear();
+         setImage(image); 
     }
     
     public void mouse_event()
@@ -107,5 +123,49 @@ public class MainScreen extends Actor
                 // start the game
             }
         }
+    }
+    
+    
+    public void message()
+    {
+        if(message=="Please select how many players" && Background.players==0)
+        {
+            image.setColor(new Color(212,0,0));
+            Font font = image.getFont();
+            font = font.deriveFont(12.0f);
+            image.setFont(font);
+            image.drawString("Please select how many players", 305, 497);
+        }
+        if(message=="Please select a difficulty" && Background.players==1 && Background.difficulty==0)
+        {
+            image.setColor(new Color(212,0,0));
+            Font font = image.getFont();
+            font = font.deriveFont(12.0f);
+            image.setFont(font);
+            image.drawString("Please select a difficulty", 330, 497);
+        }
+    }
+    
+     public void image()
+    {
+        image.setColor(Color.black);
+        image.fillRect(20, 20, 760, 560);
+        image.setColor(new Color(25,25,50));
+        image.fillRect(30, 30, 740, 540);
+    }
+    
+    public void easy()
+    {
+       
+    }
+
+    public void medium()
+    {
+       
+    }
+
+    public void hard()
+    {
+       
     }
 }
