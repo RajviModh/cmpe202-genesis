@@ -68,4 +68,13 @@ public class Announcement extends Actor
         statementPriorityQueue=1000;
         statementTimer=0;
     }
+    
+    public void Perform()
+    {
+      // this method will have code for announcements
+    }
+    
+   public void start()
+    {
+    }
 }
