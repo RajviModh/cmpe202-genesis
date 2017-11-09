@@ -42,9 +42,37 @@ public class EnemySnakeBody extends Actor
         {
         }else{
             Image();
+            Attacked();
+            count++;
         } 
     }
-
+public void Attacked()
+    {
+        if(killtimer-count>12)
+        {
+            Snake player = (Snake) getOneIntersectingObject(Snake.class);
+            if(player!=null)
+            {
+                if(getImage().getWidth()==Background.playerSize && getImage().getHeight()==Background.playerSize)
+                {
+                    Blood blood = new Blood();
+                    getWorld().addObject(blood,getX(),getY());
+                    if(EnemySnake.Armour>0)
+                    {
+                        EnemySnake.armourCount++;
+                        EnemySnake.Armour--;
+                        if(EnemySnake.armourCount>=EnemySnake.armourEfficency)
+                        {
+                            EnemySnake.Health--;
+                            EnemySnake.armourCount=0;
+                        }
+                    }else{
+                        EnemySnake.Health--;
+                    }
+                }
+            }
+        }
+    }
     public void DrawImages()
     {
         Body.setColor(new Color(255,0,0));
