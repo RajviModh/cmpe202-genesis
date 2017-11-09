@@ -32,6 +32,12 @@ public class SnakeHub extends Actor
     public void Score()
     {
         //show player score
+        image.setColor(new Color(230,230,230));
+        image.fillRect(5, 470, 100, 15);
+        image.setColor(new Color(255,255,0));
+        image.drawRect(5, 470, 99, 14);
+        image.setColor(new Color(0,0,0));
+        image.drawString("Xp: " + score, 10, 482);
     }
     
     public void Armour()
