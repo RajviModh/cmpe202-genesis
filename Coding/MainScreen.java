@@ -15,11 +15,24 @@ public class MainScreen extends Actor
     GreenfootImage image = new GreenfootImage(800,600);
     public String message;
     public int waitCount;
-    public int color_r =0;
-    public int color_g =0;
-    public int color_b =0;
-    public int single_player_color = 200;
-    public int multiple_player_color = 200;
+    public int SingleP_color_r =0; //spr
+    public int SingleP_color_g =0;
+    public int SingleP_color_b =0;
+    public int single_player_color = 200; //spx
+    public int multiple_player_color = 200;//mpx
+    public int medium_Dif_color_r = 0; //myr
+    public int medium_Dif_color_g = 0;
+    public int medium_Dif_color_b = 0;
+    public int easy_Dif_color_r = 0;// eyr
+    public int easy_Dif_color_g = 0;
+    public int easy_Dif_color_b = 0;
+    public int easy_Dif_color = 0;//ex
+    public int medium_Dif_color = 0;//mx
+    public int hard_Dif_color_r = 0;// hyr
+    public int hard_Dif_color_g = 0;
+    public int hard_Dif_color_b = 0;
+    public int hard_Dif_color = 0;//hx
+    
     //constructor
     public MainScreen()
     {
@@ -45,7 +58,7 @@ public class MainScreen extends Actor
     
       public void singlePlayer()
     {
-        image.setColor(new Color(color_r,color_g,color_b));
+        image.setColor(new Color(SingleP_color_r,SingleP_color_g,SingleP_color_b));
         image.fillRect(175, 350, 200, 50);
         image.setColor(new Color(single_player_color,single_player_color,single_player_color));
         image.fillRect(180, 355, 190, 40);
@@ -72,7 +85,7 @@ public class MainScreen extends Actor
     
     public void multiPlayer()
     {
-        image.setColor(new Color(color_r,color_g,color_b));
+        image.setColor(new Color(SingleP_color_r,SingleP_color_g,SingleP_color_b));
         image.fillRect(425, 350, 200, 50);
         image.setColor(new Color(multiple_player_color,multiple_player_color,multiple_player_color));
         image.fillRect(430, 355, 190, 40);
@@ -123,6 +136,60 @@ public class MainScreen extends Actor
                 // start the game
             }
         }
+         if(Background.difficulty==1)
+        {
+          
+            medium_Dif_color_r=0;
+            medium_Dif_color_g=0;
+            medium_Dif_color_b=0;
+            easy_Dif_color_r = 13;
+            easy_Dif_color_g = 71;
+            easy_Dif_color_b = 233;
+            hard_Dif_color_r = 0;
+            hard_Dif_color_g = 0;
+            hard_Dif_color_b = 0;
+           
+        }
+        if(Background.difficulty==2)
+        {
+           
+         
+            medium_Dif_color_r=13;
+            medium_Dif_color_g=71;
+            medium_Dif_color_b=233;
+            easy_Dif_color_r = 0;
+            easy_Dif_color_g = 0;
+            easy_Dif_color_b = 0;
+            hard_Dif_color_r = 0;
+            hard_Dif_color_g = 0;
+            hard_Dif_color_b = 0;
+        }
+        if(Background.difficulty==3)
+        {
+            medium_Dif_color_r=0;
+            medium_Dif_color_g=0;
+            medium_Dif_color_b=0;
+            easy_Dif_color_r = 0;
+            easy_Dif_color_g = 0;
+            easy_Dif_color_b = 0;
+            hard_Dif_color_r = 13;
+            hard_Dif_color_g = 71;
+            hard_Dif_color_b = 233;
+        }
+        if(Background.players==1)
+        {
+            SingleP_color_r=13;
+            SingleP_color_g=71;
+            SingleP_color_b=233;
+          
+        }
+        if(Background.players==2)
+        {
+            SingleP_color_r=0;
+            SingleP_color_g=0;
+            SingleP_color_b=0;
+            
+        }
     }
     
     
@@ -156,16 +223,40 @@ public class MainScreen extends Actor
     
     public void easy()
     {
-       
+        image.setColor(new Color(easy_Dif_color_r,easy_Dif_color_g,easy_Dif_color_b));
+        image.fillRect(75, 425, 150, 50);
+        image.setColor(new Color(easy_Dif_color,easy_Dif_color,easy_Dif_color));
+        image.fillRect(80, 430, 140, 40);
+        Font font = image.getFont();
+        font = font.deriveFont(20.0f);
+        image.setFont(font);
+        image.setColor(new Color(0,255,0));
+        image.drawString("Easy", 125, 455);
     }
 
     public void medium()
     {
-       
+        image.setColor(new Color(medium_Dif_color_r,medium_Dif_color_g,medium_Dif_color_b));
+        image.fillRect(320, 425, 150, 50);
+        image.setColor(new Color(medium_Dif_color,medium_Dif_color,medium_Dif_color));
+        image.fillRect(325, 430, 140, 40);
+        Font font = image.getFont();
+        font = font.deriveFont(20.0f);
+        image.setFont(font);
+        image.setColor(new Color(255,255,0));
+        image.drawString("Medium", 360, 455);
     }
 
     public void hard()
     {
-       
+        image.setColor(new Color(hard_Dif_color_r,hard_Dif_color_g,hard_Dif_color_b));
+        image.fillRect(575, 425, 150, 50);
+        image.setColor(new Color(hard_Dif_color,hard_Dif_color,hard_Dif_color));
+        image.fillRect(580, 430, 140, 40);
+        Font font = image.getFont();
+        font = font.deriveFont(20.0f);
+        image.setFont(font);
+        image.setColor(new Color(255,0,0));
+        image.drawString("Hard", 630, 455);
     }
 }
