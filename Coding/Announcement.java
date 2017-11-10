@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.awt.Font;
+import java.awt.Color;
 /**
  * Write a description of class Announcer here.
  * 
@@ -76,6 +77,19 @@ public class Announcement extends Actor
     
    public void start()
     {
-        //start code
+       Background.Paused=true;
+       startCount++;
+       Font font = new Font("Calibri",Font.PLAIN, 40);
+       start.setFont(font);
+       start.setColor(new Color(210,0,0));
+       if(startCount==1)
+        {
+            //code to add different sounds
+            sound = new GreenfootSound ("3.mp3");
+            sound.play();
+            start.clear();
+            start.drawString("3",15,40);
+            setImage(start);
+        }
     }
 }
