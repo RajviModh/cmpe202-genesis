@@ -53,6 +53,10 @@ public class SnakeHub extends Actor
     public void Background()
     {
         //background appearance
+        image.setColor(new Color(255,255,255));
+        image.fill();
+        image.setColor(new Color(25,25,50));
+        image.fillRect(0, 10, 110, 480);
     }
     
     
