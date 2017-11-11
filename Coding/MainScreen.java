@@ -100,6 +100,15 @@ public class MainScreen extends Actor
     {
          getImage().clear();
          setImage(image); 
+         singlePlayer();
+         multiPlayer();
+         message();
+         title();
+         easy();
+         medium();
+         hard();
+         mouse_event();
+         image();
     }
     
     public void mouse_event()
@@ -108,17 +117,38 @@ public class MainScreen extends Actor
         if(mouse!=null){
             if(mouse.getX()>=75 &&mouse.getX()<=225 && mouse.getY()>=425 && mouse.getY()<=475)
             {
-            // difficulty easy
+                easy_Dif_color = 100;
+                easy();
+                 if(mouse.getButton()==1)
+                {
+                    Background.difficulty=1;
+                }
+           
+            }else{
+                easy_Dif_color=200;
             }
             
              if(mouse.getX()>=320 &&mouse.getX()<=470 && mouse.getY()>=425 && mouse.getY()<=475)
             {
-               // difficulty midium
+                 medium_Dif_color=100;
+                if(mouse.getButton()==1)
+                {
+                    Background.difficulty=2;
+                }
+            }else{
+                medium_Dif_color=200;
             }
             
             if(mouse.getX()>=575 &&mouse.getX()<=725 && mouse.getY()>=425 && mouse.getY()<=475)
             {
-               //difficulty high
+              hard_Dif_color=100;
+                hard();
+                if(mouse.getButton()==1)
+                {
+                    Background.difficulty=3;
+                }
+            }else{
+                hard_Dif_color=200;
             }
             
             if(mouse.getX()>=175 &&mouse.getX()<=375 && mouse.getY()>=350 && mouse.getY()<=400)
