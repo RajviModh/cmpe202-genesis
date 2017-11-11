@@ -19,6 +19,13 @@ public class EnemySnakeHub extends Actor
     public int trans;
     GreenfootImage image = new GreenfootImage(120,500);
     
+    public EnemySnakeHub(){
+    getImage().clear();
+    Background();
+    Score();
+    setImage(image); 
+    }
+    
     public void act() 
     {
         // Add your action code here.
@@ -32,7 +39,27 @@ public class EnemySnakeHub extends Actor
       Background();
       Score();
     }
-    
+     public void Transparent()
+    {
+        Snake player = (Snake) getOneIntersectingObject(Snake.class);
+        EnemySnake enemy = (EnemySnake) getOneIntersectingObject(EnemySnake.class);
+        SnakeBody playerbody = (SnakeBody) getOneIntersectingObject(SnakeBody.class);
+        EnemySnakeBody enemybody = (EnemySnakeBody) getOneIntersectingObject(EnemySnakeBody.class);
+        SnakeFood food = (SnakeFood) getOneIntersectingObject(SnakeFood.class);
+        if(playerbody!=null || enemybody!=null)
+        {
+            trans=200;
+        }
+        if(food!=null || player!=null || enemy!=null)
+        {
+            trans=100;
+        }
+        if(food==null && player==null && enemy==null && playerbody==null && enemybody==null)
+        {
+            trans=255;
+        }
+        image.setTransparency(trans);
+    }
     public void Score()
     {
         image.setColor(new Color(230,230,230));
