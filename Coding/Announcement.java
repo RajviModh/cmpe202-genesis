@@ -48,6 +48,22 @@ public class Announcement extends Actor
     public void act() 
     {
         // Add your action code here.
+        statementTimer++;
+        if(statementTimer>=statementTime)
+        {
+            initiate();
+        }
+        if(statementPriorityQueue<statementPriority)
+        {
+            initiate();
+        }
+        if(initial==1)
+        {
+            start();
+        }else{
+            Perform();
+        }
+        sound.setVolume(Background.volume);
     }    
     
     public void initiate()
