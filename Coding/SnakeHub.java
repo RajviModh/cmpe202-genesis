@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.awt.Color;
 
 /**
  * Write a description of class SnakeHub here.
@@ -12,6 +13,9 @@ public class SnakeHub extends Actor
      * Act - do whatever the SnakeHub wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public static int score;
+    public int trans;
+    GreenfootImage image = new GreenfootImage(120,500);
     
     public SnakeHub()
     {
