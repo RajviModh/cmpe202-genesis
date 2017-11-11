@@ -89,6 +89,12 @@ public class Announcement extends Actor
     public void Perform()
     {
       // this method will have code for announcements
+      if(statement!=null && statementTime!=0 && statementSize!=0)
+        {
+            setImage(new GreenfootImage(statement, statementSize, new Color(statementColorR, statementColorG, statementColorB), new Color(0, 0, 0, 0)));
+        }else{
+            getImage().clear();
+        }
     }
     
    public void start()
@@ -105,6 +111,14 @@ public class Announcement extends Actor
             sound.play();
             start.clear();
             start.drawString("3",15,40);
+            setImage(start);
+        }
+        if(startCount==50)
+        {
+            sound = new GreenfootSound ("2.mp3");
+            sound.play();
+            start.clear();
+            start.drawString("2",15,40);
             setImage(start);
         }
     }
