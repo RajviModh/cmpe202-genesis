@@ -1,6 +1,5 @@
 import greenfoot.*;
-  
-  
+import java.awt.Color;  
 import java.util.Calendar;
 import java.lang.Math;
 /**
@@ -32,8 +31,14 @@ public class EnemySnake extends Actor
     public int Primary;
     public int Regeneration;
     public int targetSet;
-    
+    public int xDiff;
+    public int yDiff; 
+    public int locationxDiff;
+    public int locationyDiff;
+    public double angle;
+    GreenfootImage image = new GreenfootImage(24,24); 
     GreenfootSound sound;
+
 
 
     /**
@@ -42,6 +47,18 @@ public class EnemySnake extends Actor
     public EnemySnake()
     {
        //Used to draw the Enemies image
+       image.setColor(Color.RED);
+        int[] xs = {0, 24, 0, 6};  
+        int[] ys = {0, 12, 24, 12}; 
+        image.fillPolygon(xs, ys, 4);
+        image.setColor(Color.WHITE);
+        image.fillOval(10, 7, 3, 4);
+        image.fillOval(10, 13, 3, 4);
+        setImage(image);
+        PlayerIsActive=100;
+        armourEfficency=0;
+        Armour=0;
+        armourCount=0;
     }
 
     /**
@@ -191,6 +208,40 @@ public class EnemySnake extends Actor
                 }
             }
         }
+        
+        if(target!=null)
+        {
+            if(target=="PLAYER")
+            {
+                Snake snake=(Snake) getWorld().getObjects(Snake.class).get(0);
+                xDiff = (snake.getX()+ranX) - getX();  
+                yDiff = (snake.getY()+ranY) - getY();  
+                locationxDiff= getX()- snake.getX();
+                locationyDiff= getY()- snake.getY();
+            }
+            if(target=="FOOD")
+            {
+                SnakeFood snakefood=(SnakeFood) getWorld().getObjects(SnakeFood.class).get(0);
+                xDiff = (snakefood.getX()+ranX) - getX();  
+                yDiff = (snakefood.getY()+ranY) - getY();  
+                locationxDiff= getX()- snakefood.getX();
+                locationyDiff= getY()- snakefood.getY();
+            }
+            targetSet=1;
+        }
+        
+          angle = Math.toDegrees(Math.atan2(yDiff, xDiff));  
+        angleDiff = getRotation() - (int)Math.round(angle);
+        absoluteDiff = (int)Math.sqrt(xDiff*xDiff+yDiff*yDiff);
+        if(targetSet==1 && absoluteDiff<30)
+        {
+            targetSet=0;
+        }
+        if(target=="PLAYER")
+        {
+            targetSet=0;
+        }
+        
     }
     
     public void difficulty()
@@ -213,9 +264,8 @@ public class EnemySnake extends Actor
     {
         //Detect if the Enemy is within the location it beleives to be the food and if it intersects with the food
 
-        //if (absoluteDiff <=25 && food!=null)
-
-        if (absoluteDiff <=25)
+        SnakeFood snakefood = (SnakeFood) getOneIntersectingObject(SnakeFood.class);
+        if (absoluteDiff <=25 && snakefood!=null)
         {
             return true;
         }

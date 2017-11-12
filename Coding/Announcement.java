@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.awt.Font;
+import java.awt.Color;
 /**
  * Write a description of class Announcer here.
  * 
@@ -47,6 +48,22 @@ public class Announcement extends Actor
     public void act() 
     {
         // Add your action code here.
+        statementTimer++;
+        if(statementTimer>=statementTime)
+        {
+            initiate();
+        }
+        if(statementPriorityQueue<statementPriority)
+        {
+            initiate();
+        }
+        if(initial==1)
+        {
+            start();
+        }else{
+            Perform();
+        }
+        sound.setVolume(Background.volume);
     }    
     
     public void initiate()
@@ -67,5 +84,42 @@ public class Announcement extends Actor
         statementPriority=statementPriorityQueue;
         statementPriorityQueue=1000;
         statementTimer=0;
+    }
+    
+    public void Perform()
+    {
+      // this method will have code for announcements
+      if(statement!=null && statementTime!=0 && statementSize!=0)
+        {
+            setImage(new GreenfootImage(statement, statementSize, new Color(statementColorR, statementColorG, statementColorB), new Color(0, 0, 0, 0)));
+        }else{
+            getImage().clear();
+        }
+    }
+    
+   public void start()
+    {
+       Background.Paused=true;
+       startCount++;
+       Font font = new Font("Calibri",Font.PLAIN, 40);
+       start.setFont(font);
+       start.setColor(new Color(210,0,0));
+       if(startCount==1)
+        {
+            //code to add different sounds
+            sound = new GreenfootSound ("3.mp3");
+            sound.play();
+            start.clear();
+            start.drawString("3",15,40);
+            setImage(start);
+        }
+        if(startCount==50)
+        {
+            sound = new GreenfootSound ("2.mp3");
+            sound.play();
+            start.clear();
+            start.drawString("2",15,40);
+            setImage(start);
+        }
     }
 }
