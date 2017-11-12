@@ -35,8 +35,10 @@ public class EnemySnake extends Actor
     public int yDiff; 
     public int locationxDiff;
     public int locationyDiff;
+    public double angle;
     GreenfootImage image = new GreenfootImage(24,24); 
     GreenfootSound sound;
+
 
 
     /**
@@ -226,6 +228,18 @@ public class EnemySnake extends Actor
                 locationyDiff= getY()- snakefood.getY();
             }
             targetSet=1;
+        }
+        
+          angle = Math.toDegrees(Math.atan2(yDiff, xDiff));  
+        angleDiff = getRotation() - (int)Math.round(angle);
+        absoluteDiff = (int)Math.sqrt(xDiff*xDiff+yDiff*yDiff);
+        if(targetSet==1 && absoluteDiff<30)
+        {
+            targetSet=0;
+        }
+        if(target=="PLAYER")
+        {
+            targetSet=0;
         }
         
     }
