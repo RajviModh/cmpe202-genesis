@@ -21,6 +21,12 @@ public class SnakeHub extends Actor
     {
         //constructor to initialize everything related to player snake 
         //armour, score, health and background
+        getImage().clear();
+        Background();
+        Health();
+        Armour();
+        Score();
+        setImage(image); 
     }
     
     public void act() 
