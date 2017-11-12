@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Write a description of class Background here.
  * 
- * @author (your name) 
+ * @author (Divyang Soni) 
  * @version (a version number or a date)
  */
 public class Background extends World
@@ -44,11 +44,17 @@ public class Background extends World
          SnakeBody.end_timer = 50;
          SnakeBody.shield = 0;
          Snake.Health = 100;
+         
          EnemySnakeBody.armour = 0;
          EnemySnakeBody.killtimer = 50;
          EnemySnake.Health=100;
+         
          Background.playerSize = 11;
          Background.foodSize=16;
+         MainScreen mainscreen = new MainScreen();
+         addObject(mainscreen, 400, 300);
+         FramePerSec fps = new FramePerSec();
+         addObject(fps, 80, 10);
          Image();
     }
     
@@ -58,19 +64,34 @@ public class Background extends World
         EnemySnake enemy = new EnemySnake();
         Announcement announce = new Announcement();
         SnakeFood sfood = new SnakeFood();
+        FramePerSec fps = new FramePerSec();
+        SnakeHub snakehub = new SnakeHub();
+        EnemySnakeHub enemyhub = new EnemySnakeHub();
+        
         List objects = getObjects(null);  
         removeObjects(objects); 
+        
         SnakeBody.end_timer = 50;
         SnakeBody.shield = 0;
+        Snake.Health = 100;
+        
         EnemySnakeBody.killtimer=50;
         EnemySnakeBody.armour=0;
         EnemySnake.Health=100;
         Background.playerSize = 11;
         Background.foodSize=16;
+        SnakeHub.score=0;
+        EnemySnakeHub.score=0;
+        
         addObject(player, 400, 450);
         addObject(enemy, 400, 150);
         addObject(announce, 400, 300);
         addObject(sfood, 600, 300);
+        addObject(snakehub, 60, 300);
+        addObject(enemyhub, 740, 300);
+        addObject(fps, 80, 10);
+        Announcement.initial=1;
+        
     // This method will be used to make initial setup of the game
     }
     
@@ -100,8 +121,16 @@ public class Background extends World
                 Paused=true;
             }
         }
-        
-        // logic to pause the game should bewritten here
+         if(Paused)
+        {
+            Announcement.statementTime=0;
+            Announcement.statementQueue="Game Paused";
+            Announcement.statementTimeQueue=1;
+            Announcement.statementSizeQueue=48;
+            Announcement.statementColorRQueue=210;
+            Announcement.statementColorGQueue=0;
+            Announcement.statementColorBQueue=0;
+        }
         
     }
     
