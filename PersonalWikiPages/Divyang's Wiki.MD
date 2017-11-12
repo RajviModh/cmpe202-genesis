@@ -41,3 +41,9 @@
 **Summary (11/04/2017)**
 1) Team is taking feedback from each other about finalizing design patterns to be implemented in each module.
 2) Team is also taking feedback from potential users about the featurs they like the most or they want to change.
+
+
+
+**Summary (11/11/2017)**
+1) With implementation, team is taking feedback about code integration in each other's modules. 
+2) Also team is taking feedback as peer review from each other about written code and how to improve it.
