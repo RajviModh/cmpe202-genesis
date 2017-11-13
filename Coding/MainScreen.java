@@ -18,20 +18,31 @@ public class MainScreen extends Actor
     public int SingleP_color_r =0; //spr
     public int SingleP_color_g =0;
     public int SingleP_color_b =0;
+    
+    public int MultiP_color_r =0;//mpr
+    public int MultiP_color_g =0;
+    public int MultiP_color_b =0;
+    
     public int single_player_color = 200; //spx
     public int multiple_player_color = 200;//mpx
+    
     public int medium_Dif_color_r = 0; //myr
     public int medium_Dif_color_g = 0;
     public int medium_Dif_color_b = 0;
+    
     public int easy_Dif_color_r = 0;// eyr
     public int easy_Dif_color_g = 0;
     public int easy_Dif_color_b = 0;
+    
     public int easy_Dif_color = 0;//ex
     public int medium_Dif_color = 0;//mx
+    public int hard_Dif_color = 0;//hx
+    public int player_color =200;//px
+    
     public int hard_Dif_color_r = 0;// hyr
     public int hard_Dif_color_g = 0;
     public int hard_Dif_color_b = 0;
-    public int hard_Dif_color = 0;//hx
+    
     
     //constructor
     public MainScreen()
@@ -71,10 +82,18 @@ public class MainScreen extends Actor
     
     public void play()
     {
-       
+       image.setColor(new Color(0,0,0));
+        image.fillRect(250, 500, 300, 50);
+        image.setColor(new Color(player_color,player_color,player_color));
+        image.fillRect(255, 505, 290, 40);
+        Font font = image.getFont();
+        font = font.deriveFont(20.0f);
+        image.setFont(font);
+        image.setColor(new Color(0,255,0));
+        image.drawString("Play", 375, 532);
     }
     
-        public void title()
+    public void title()
     {
         image.setColor(new Color(255,255,255));
         Font font = image.getFont();
@@ -98,17 +117,18 @@ public class MainScreen extends Actor
     
     public void sketch()
     {
-         getImage().clear();
-         setImage(image); 
-         singlePlayer();
-         multiPlayer();
-         message();
-         title();
-         easy();
-         medium();
-         hard();
-         mouse_event();
-         image();
+        getImage().clear();
+        mouse_event();
+        image();
+        title();
+        easy();
+        medium();
+        hard();
+        play();
+        singlePlayer();
+        multiPlayer();
+        message();
+        setImage(image); 
     }
     
     public void mouse_event()
@@ -153,19 +173,51 @@ public class MainScreen extends Actor
             
             if(mouse.getX()>=175 &&mouse.getX()<=375 && mouse.getY()>=350 && mouse.getY()<=400)
             {
-                //single player
+                 single_player_color=100;
+                if(mouse.getButton()==1)
+                {
+                    Background.players=1;
+                }
+            }else{
+                single_player_color=200;
             }
             
             if(mouse.getX()>=425 &&mouse.getX()<=625 && mouse.getY()>=350 && mouse.getY()<=400)
             {
-               //multiple player
+                multiple_player_color=100;
+                if(mouse.getButton()==1)
+                {
+                    Background.players=2;
+                }
+            }else{
+                multiple_player_color=200;
             }
             
              if(mouse.getX()>=250 &&mouse.getX()<=550 && mouse.getY()>=500 && mouse.getY()<=550)
             {
-                // start the game
+                player_color=100;
+                play();
+                if(Background.players==2 && mouse.getButton()==1)
+                {
+                    Background.start=1;
+                }
+                if(Background.players==1 && Background.difficulty!=0 && mouse.getButton()==1)
+                {
+                    Background.start=1;
+                }
+                if(Background.players==0 && mouse.getButton()==1)
+                {
+                    message="Please select how many players";
+                }
+                if(Background.players==1 && Background.difficulty==0 && mouse.getButton()==1)
+                {
+                    message="Please select a difficulty";
+                }
+            }else{
+                player_color=200;
             }
         }
+        
          if(Background.difficulty==1)
         {
           
@@ -182,8 +234,6 @@ public class MainScreen extends Actor
         }
         if(Background.difficulty==2)
         {
-           
-         
             medium_Dif_color_r=13;
             medium_Dif_color_g=71;
             medium_Dif_color_b=233;
@@ -211,6 +261,9 @@ public class MainScreen extends Actor
             SingleP_color_r=13;
             SingleP_color_g=71;
             SingleP_color_b=233;
+            MultiP_color_r = 0;
+            MultiP_color_g = 0;
+            MultiP_color_b = 0;
           
         }
         if(Background.players==2)
@@ -218,6 +271,9 @@ public class MainScreen extends Actor
             SingleP_color_r=0;
             SingleP_color_g=0;
             SingleP_color_b=0;
+            MultiP_color_r = 13;
+            MultiP_color_g = 71;
+            MultiP_color_b = 233;
             
         }
     }

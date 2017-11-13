@@ -51,6 +51,7 @@ public class Background extends World
          
          Background.playerSize = 11;
          Background.foodSize=16;
+         
          MainScreen mainscreen = new MainScreen();
          addObject(mainscreen, 400, 300);
          FramePerSec fps = new FramePerSec();
@@ -111,7 +112,7 @@ public class Background extends World
     }
     
     public void Pause(){
-        String key = Greenfoot.getKey();  
+        key = Greenfoot.getKey();  
         if ("p".equals(key))  
         {
             if(Paused)
@@ -136,13 +137,16 @@ public class Background extends World
     
     public void reset()
     { 
-       List objects = getObjects(null);  
+       if("r".equals(key))
+       {
+            List objects = getObjects(null);  
             removeObjects(objects); 
             Paused=false;
             prepareInitial();
+       }
     }
     
-        public void Image()
+    public void Image()
     {
         GreenfootImage image = new GreenfootImage(getWidth(), getHeight()); 
         image.clear();
