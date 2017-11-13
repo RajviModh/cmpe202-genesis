@@ -121,5 +121,20 @@ public class Announcement extends Actor
             start.drawString("2",15,40);
             setImage(start);
         }
+        if(startCount==100)
+        {
+            sound = new GreenfootSound ("1.mp3");
+            sound.play();
+            start.clear();
+            start.drawString("1",15,40);
+            setImage(start);
+        }
+        if(startCount==150)
+        {
+            Background.Paused=false;
+            start.clear();
+            setImage(start);
+            initial=0;
+        }
     }
 }
