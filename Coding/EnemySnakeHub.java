@@ -23,6 +23,7 @@ public class EnemySnakeHub extends Actor
     getImage().clear();
     Background();
     Score();
+    Armour();
     Health();
     setImage(image); 
     }
@@ -35,11 +36,13 @@ public class EnemySnakeHub extends Actor
     }  
      public void Build()
     {
-        
       getImage().clear();
       Background();
       Health();
+      Transparent();
+      Armour();
       Score();
+      setImage(image);
     }
      public void Transparent()
     {
@@ -97,5 +100,43 @@ public class EnemySnakeHub extends Actor
         image.fill();
         image.setColor(new Color(25,25,50));
         image.fillRect(10, 10, 110, 480);
+    }
+    public void Armour()
+    {
+        if(EnemySnakeBody.armour>0)
+        {
+            image.setColor(new Color(230,230,230));
+            image.drawString("Armour", 40, 65);
+            switch(EnemySnakeBody.armour)
+            {
+                case 1:
+                image.setColor(new Color(146,123,81));
+                break;
+                case 2:
+                image.setColor(new Color(140,120,83));
+                break;
+                case 3:
+                image.setColor(new Color(230,232,250));
+                break;
+                case 4:
+                image.setColor(new Color(84,84,84));
+                break;
+                case 5:
+                image.setColor(new Color(217,217,25));
+                break;
+                case 6:
+                image.setColor(new Color(14,191,233));
+                break;
+                case 7:
+                image.setColor(new Color(160,210,210));
+                break;
+                case 8:
+                image.setColor(new Color(EnemySnakeBody.x,EnemySnakeBody.y,EnemySnakeBody.z));
+                break;
+            }
+            image.fillRect(15, 70, Snake.Armour/10, 15);
+            image.setColor(Color.black);
+            image.drawRect(15, 70, 99, 14);
+        }
     }
 }
