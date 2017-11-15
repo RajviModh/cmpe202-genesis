@@ -28,7 +28,7 @@ public class EnemySnakeBody extends Actor
     public static int z=210;
     public int armourDiffrence;
     GreenfootImage Body = new GreenfootImage(Background.playerSize, Background.playerSize);
-    
+        GreenfootImage BodyDefault = new GreenfootImage(Background.playerSize, Background.playerSize); 
    public void EnemySnakebody()
     {
         //Constructor creation for EnemySnakeBody
