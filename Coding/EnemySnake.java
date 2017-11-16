@@ -7,7 +7,7 @@ import java.lang.Math;
  * @author Keval Shah
  * @version (a version number or a date)
  */
-public class EnemySnake extends Actor
+public class EnemySnake extends Actor 
 {
     // instance variables - replace the example below with your own
     private int x;
@@ -38,7 +38,7 @@ public class EnemySnake extends Actor
     public double angle;
     GreenfootImage image = new GreenfootImage(24,24); 
     GreenfootSound sound;
-
+    int count;
 
 
     /**
@@ -76,7 +76,7 @@ public class EnemySnake extends Actor
             if(Background.World=="GAME")
             {
                 aroundFood();
-                controls();
+                controls(Background.players);
                 eat();
                 Location();
                 bodyControl();
@@ -97,17 +97,26 @@ public class EnemySnake extends Actor
             addCounter=0;
         }
     }
-    public void controls()
+    public void controls(int playerCount)
     {
         //Used to control the enemy snake
         // put your code here
-        move(speed);
-        PlayerIsActive--;
+        selectPlayerStrategy s = null;
+        
         //Detect player interaction
-        if(Background.players==2)
+        if(playerCount==1){
+        s=new PlayerOne();
+    }
+    else if(playerCount==2){
+        s=new PlayerTwo();
+    }
+    
+    s.controls(this);
+        
+        /*if(Background.players==2)
         {
             if(Greenfoot.isKeyDown("D"))
-            {
+            {`
                 turn(5);
                 PlayerIsActive=100;
             }
@@ -116,10 +125,10 @@ public class EnemySnake extends Actor
                 turn(-5);
                 PlayerIsActive=100;
             }
-        }
+        }*/
         
         //Determine if the player is inactive
-        if(Background.players==1)
+       /* if(Background.players==1)
         {
             if(PlayerIsActive<=0)
             {
@@ -136,7 +145,7 @@ public class EnemySnake extends Actor
                     faceTarget();
                 }
             }
-        }
+        }*/
        
     }
       public void aroundFood()
