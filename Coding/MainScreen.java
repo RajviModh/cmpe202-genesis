@@ -156,14 +156,13 @@ public class MainScreen extends Actor
     {
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if(mouse!=null){
-            x = mouse.getX();
-            y = mouse.getY();
+           boolean bStateFound = false;
             
             if(mouse.getX()>=75 &&mouse.getX()<=225 && mouse.getY()>=425 && mouse.getY()<=475)
             {
                 easy_Dif_color = 100;
                 setState(new EasyDifficulty());
-               
+                bStateFound = true;
                  if(mouse.getButton()==1)
                 {
                     Background.difficulty=1;
@@ -177,7 +176,7 @@ public class MainScreen extends Actor
             {
                 medium_Dif_color=100;
                 setState(new EasyDifficulty());
-                
+                bStateFound = true;
                 if(mouse.getButton()==1)
                 {
                     Background.difficulty=2;
@@ -190,7 +189,7 @@ public class MainScreen extends Actor
             {
               hard_Dif_color=100;
               setState(new HardDifficulty());
-                
+                bStateFound = true;
                
                 if(mouse.getButton()==1)
                 {
@@ -200,7 +199,7 @@ public class MainScreen extends Actor
                 hard_Dif_color=200;
             }
             
-            
+            if(bStateFound)
             state.draw(this);
             
             if(mouse.getX()>=175 &&mouse.getX()<=375 && mouse.getY()>=350 && mouse.getY()<=400)
