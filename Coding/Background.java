@@ -20,6 +20,7 @@ public class Background extends World
     public static boolean Muted;
     public static int volume;
     public String key;
+    
     Snake player = new Snake();
     EnemySnake enemy = new EnemySnake();
     private GreenfootSound music = new GreenfootSound("background.mp3");
@@ -33,7 +34,7 @@ public class Background extends World
     {    
         super(800, 600, 1,false); 
         start=0;
-        setPaintOrder(Snake.class, EnemySnake.class, SnakeBody.class, EnemySnakeBody.class);
+        setPaintOrder(Snake.class, EnemySnake.class, SnakeBody.class, EnemySnakeBody.class, SnakeFood.class, SnakeHub.class);
         World=null;
         Paused=false;
         Muted=false;
@@ -225,7 +226,6 @@ public class Background extends World
                     EnemySnakeBody.armour=0;
                     EnemySnake.Health=100;
                     addObject(enemy, 400, 150);
-                    
                 }
             }
         }

@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.*; 
+import java.util.ArrayList;
 import greenfoot.MouseInfo;
 /**
  * MainScreen will hve options for selecting player options and difficulty level.
@@ -12,12 +13,14 @@ public class MainScreen extends Actor
      * Act - do whatever the MainScreen wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
     GreenfootImage image = new GreenfootImage(800,600);
     public String message;
     public int waitCount;
     public int SingleP_color_r =0; //spr
     public int SingleP_color_g =0;
     public int SingleP_color_b =0;
+    private State state;
     
     public int MultiP_color_r =0;//mpr
     public int MultiP_color_g =0;
@@ -43,11 +46,23 @@ public class MainScreen extends Actor
     public int hard_Dif_color_g = 0;
     public int hard_Dif_color_b = 0;
     
+    public int x = 0;
+    public int y = 0;
+    
     
     //constructor
     public MainScreen()
     {
         sketch();
+    }
+    
+    
+    public void setState(State state) {
+        this.state = state;
+    }
+    
+    public State getState() {
+        return state;
     }
     
     public void act() 
@@ -120,10 +135,16 @@ public class MainScreen extends Actor
         getImage().clear();
         mouse_event();
         image();
-        title();
-        easy();
-        medium();
-        hard();
+        title(); 
+        setState(new EasyDifficulty());
+        state.draw(this);
+        
+        setState(new EasyDifficulty());
+        state.draw(this);
+        
+        setState(new HardDifficulty());
+        state.draw(this);
+        
         play();
         singlePlayer();
         multiPlayer();
@@ -135,10 +156,14 @@ public class MainScreen extends Actor
     {
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if(mouse!=null){
+            x = mouse.getX();
+            y = mouse.getY();
+            
             if(mouse.getX()>=75 &&mouse.getX()<=225 && mouse.getY()>=425 && mouse.getY()<=475)
             {
                 easy_Dif_color = 100;
-                easy();
+                setState(new EasyDifficulty());
+               
                  if(mouse.getButton()==1)
                 {
                     Background.difficulty=1;
@@ -150,7 +175,9 @@ public class MainScreen extends Actor
             
              if(mouse.getX()>=320 &&mouse.getX()<=470 && mouse.getY()>=425 && mouse.getY()<=475)
             {
-                 medium_Dif_color=100;
+                medium_Dif_color=100;
+                setState(new EasyDifficulty());
+                
                 if(mouse.getButton()==1)
                 {
                     Background.difficulty=2;
@@ -162,7 +189,9 @@ public class MainScreen extends Actor
             if(mouse.getX()>=575 &&mouse.getX()<=725 && mouse.getY()>=425 && mouse.getY()<=475)
             {
               hard_Dif_color=100;
-                hard();
+              setState(new HardDifficulty());
+                
+               
                 if(mouse.getButton()==1)
                 {
                     Background.difficulty=3;
@@ -170,6 +199,9 @@ public class MainScreen extends Actor
             }else{
                 hard_Dif_color=200;
             }
+            
+            
+            state.draw(this);
             
             if(mouse.getX()>=175 &&mouse.getX()<=375 && mouse.getY()>=350 && mouse.getY()<=400)
             {
@@ -307,42 +339,7 @@ public class MainScreen extends Actor
         image.fillRect(30, 30, 740, 540);
     }
     
-    public void easy()
-    {
-        image.setColor(new Color(easy_Dif_color_r,easy_Dif_color_g,easy_Dif_color_b));
-        image.fillRect(75, 425, 150, 50);
-        image.setColor(new Color(easy_Dif_color,easy_Dif_color,easy_Dif_color));
-        image.fillRect(80, 430, 140, 40);
-        Font font = image.getFont();
-        font = font.deriveFont(20.0f);
-        image.setFont(font);
-        image.setColor(new Color(0,255,0));
-        image.drawString("Easy", 125, 455);
-    }
-
-    public void medium()
-    {
-        image.setColor(new Color(medium_Dif_color_r,medium_Dif_color_g,medium_Dif_color_b));
-        image.fillRect(320, 425, 150, 50);
-        image.setColor(new Color(medium_Dif_color,medium_Dif_color,medium_Dif_color));
-        image.fillRect(325, 430, 140, 40);
-        Font font = image.getFont();
-        font = font.deriveFont(20.0f);
-        image.setFont(font);
-        image.setColor(new Color(255,255,0));
-        image.drawString("Medium", 360, 455);
-    }
-
-    public void hard()
-    {
-        image.setColor(new Color(hard_Dif_color_r,hard_Dif_color_g,hard_Dif_color_b));
-        image.fillRect(575, 425, 150, 50);
-        image.setColor(new Color(hard_Dif_color,hard_Dif_color,hard_Dif_color));
-        image.fillRect(580, 430, 140, 40);
-        Font font = image.getFont();
-        font = font.deriveFont(20.0f);
-        image.setFont(font);
-        image.setColor(new Color(255,0,0));
-        image.drawString("Hard", 630, 455);
-    }
+   
+    
+  
 }
