@@ -7,7 +7,7 @@ import java.awt.Color;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Announcement extends Actor
+public class Announcement extends Actor 
 {
     //declaring initial variables
    
@@ -97,14 +97,22 @@ public class Announcement extends Actor
         }
     }
     
+   public int getStartCount()
+   {
+       return startCount;
+    }
+    
    public void start()
     {
        Background.Paused=true;
-       startCount++;
+       //startCount++;
        Font font = new Font("Calibri",Font.PLAIN, 40);
        start.setFont(font);
        start.setColor(new Color(210,0,0));
-       if(startCount==1)
+       
+       //
+       
+       /*if(startCount==1)
         {
             //code to add different sounds
             sound = new GreenfootSound ("3.mp3");
@@ -128,7 +136,8 @@ public class Announcement extends Actor
             start.clear();
             start.drawString("1",15,40);
             setImage(start);
-        }
+        }*/
+        
         if(startCount==150)
         {
             Background.Paused=false;
