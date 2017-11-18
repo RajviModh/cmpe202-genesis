@@ -7,7 +7,7 @@ import java.lang.Math;
  * @author Keval Shah
  * @version (a version number or a date)
  */
-public class EnemySnake extends Actor 
+public class EnemySnake extends Prototype 
 {
     // instance variables - replace the example below with your own
     private int x;
@@ -352,25 +352,6 @@ public class EnemySnake extends Actor
         }
     }
     
-    public void Location()
-    {
-        //Move the snake to the inverse side of the screen if on edge
-       if(getX()>800)
-        {
-            setLocation(0,getY());
-        }
-        if(getX()<0)
-        {
-            setLocation(800,getY());
-        }
-        if(getY()>400)
-        {
-            setLocation(getX(),0);
-        }
-        if(getY()<0)
-        {
-            setLocation(getX(),600);
-        }
-     }
+    
    
 }
