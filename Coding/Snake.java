@@ -3,91 +3,52 @@ import java.awt.Color;
 import java.awt.Font;  
 import java.util.Calendar;
 import java.lang.Math;
-  
 
-   // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class Snake here.
- * 
- * @author (Genesis) 
- * @version (10.26.17)
- */
-public class Snake extends Actor
+public class Snake extends Prototype
 {
-    /**
-     * Act - do whatever the Player wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public int speed=5;
+    public int rotation=5;
+    public int addTimer=2;
+    public int addCounter;
+    public int spacecount=0;
+    public int sameActionCountRight;
+    public int sameActionCountLeft;
+    public int rightTurn = 9;
+    public int leftTurn = 9;
+    public static int SnakeIsActive;
+    public int foodEaten=0;
+    public int Primary;
+    public static int Health;
+    public static int Armour;
+    public int Regeneration;
+    public String target;
+    public int xDiff;
+    public int yDiff; 
+    public int absoluteDiff;
+    public int locationxDiff;
+    public int locationyDiff;
+    public int present;
+    public double angle;
+    public int angleDiff;
+    public static int armourCount;
+    public static int armourEfficency;
+    public int nullX;
+    public int nullY;
+    public int killNullCount;
     GreenfootImage image = new GreenfootImage(24,24); 
     GreenfootSound sound;
-    
-    public int rotation=5;
-    public int speed=5;
-    
-    public int addCounter;
-    public int addTimer=2;
-    
-    public int sameActionCountLeft;
-    public int sameActionCountRight;
-    
-    public int spacecount=0;
-    
-    public int leftTurn = 9;
-    public int rightTurn = 9;
-    
-    public int foodEaten=0;
-    
-    public static int PlayerIsActive;
-    
-    public static int Health;
-    public int Primary;
-    
-    public int Regeneration;
-    public static int Armour;
-    
-    public String target;
-    
-    public int yDiff;
-    public int xDiff;
-    public int locationyDiff; 
-    public int locationxDiff;
-   
-    public int absoluteDiff;
-    
-    public int present;
-    
-    public int angleDiff;
-    public double angle;
-    
-    public static int armourEfficency;
-    public static int armourCount;
-    
-    public int nullY;
-    public int nullX;
-    public int killNullCount;
-    
-    //initialize player in game
-    public Snake()  
+
+    public Snake()
     {
+        //Draw the Enemies image
+        super();
         image.setColor(Color.BLACK);
-        int[] xs = {0, 24, 0, 6};  
-        int[] ys = {0, 12, 24, 12}; 
-        image.fillPolygon(xs, ys, 4);
-        image.setColor(Color.WHITE);
-        image.fillOval(10, 7, 3, 4);
-        image.fillOval(10, 13, 3, 4);
-        setImage(image); 
-        PlayerIsActive=100;
-        armourEfficency=0;
-        Armour=0;
-        armourCount=0;
+        
+        
     }
-    
-    //to be implemented for checking state of game whether paused or on
+
     public void act() 
-    {
-        // Add your action code here.
+    {    
         if(Background.Paused)
         {
             if(Background.World!="GAME")
@@ -107,19 +68,20 @@ public class Snake extends Actor
                 mainMenu();
             }
         }
-    } 
-    
+    }    
+
     public void mainMenu()
     {
         move(speed);
         Location();
         bodyControl();
-        nullTarget(); //to be added
+        nullTarget();
         faceTarget();
         Snake player = (Snake) getOneIntersectingObject(Snake.class);
         if(player!=null)
         {
-            //to be implemented
+            Blood blood = new Blood();
+            getWorld().addObject(blood,getX(),getY());
         }
         killNullCount++;
         if(killNullCount>=1000)
@@ -127,40 +89,7 @@ public class Snake extends Actor
             getWorld().removeObject(this);
         }
     }
-    
-    //logic for snake eating food and changes to be made afterwards
-    public void eat()
-    {
-        SnakeFood food = (SnakeFood) getOneIntersectingObject(SnakeFood.class);
-        if (food != null) {
-            sound = new GreenfootSound ("eat.mp3");
-            sound.setVolume(Background.volume);
-            sound.play();
-            foodEaten++;
-            Health=Health+10;
-            SnakeBody.end_timer=SnakeBody.end_timer+15;
-            //PlayerHub.score+=15; dependency
-            if(Health>50)
-            {
-                if(foodEaten%5==0)
-                {
-                    Primary=200;
-                }
-            }
-        }
-    }
-    
-    //for checking presence of food
-    public boolean foodPresent()
-    {
-        SnakeFood food = (SnakeFood) getOneIntersectingObject(SnakeFood.class);
-        if (absoluteDiff <=25 && food!=null)
-        {
-            return true;
-        }
-        return false;
-    }
-    
+
     public void nullTarget()
     {
         if(xDiff<=20&&yDiff<=20)
@@ -194,6 +123,62 @@ public class Snake extends Actor
         } 
     }
     
+   
+    public void determineTarget()
+    {
+        //Determine what the primary target is
+        if(getWorld().getObjects(EnemySnake.class).isEmpty())
+        {
+            target="FOOD";
+        }else{
+            if(Primary>=1)
+            {
+                target="ENEMY";
+                Primary--;
+            }else{
+                target="FOOD";
+            }
+        }
+    }
+
+    public boolean foodPresent()
+    {
+        //Detect if the EnemySnake is within the location it beleieves to be the food and if it intersects with the food
+        SnakeFood food = (SnakeFood) getOneIntersectingObject(SnakeFood.class);
+        if (absoluteDiff <=25 && food!=null)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void determineTargetLocation()
+    {
+        //calculate needed variables
+        if(target!=null)
+        {
+            if(target=="ENEMY")
+            {
+                EnemySnake enemy=(EnemySnake) getWorld().getObjects(EnemySnake.class).get(0);
+                xDiff = enemy.getX() - getX();  
+                yDiff = enemy.getY() - getY();  
+                locationxDiff= getX()- enemy.getX();
+                locationyDiff= getY()- enemy.getY();
+            }
+            if(target=="FOOD")
+            {
+                SnakeFood food=(SnakeFood) getWorld().getObjects(SnakeFood.class).get(0);
+                xDiff = food.getX() - getX();  
+                yDiff = food.getY() - getY();  
+                locationxDiff= getX()- food.getX();
+                locationyDiff= getY()- food.getY();
+            }
+            angle = Math.toDegrees(Math.atan2(yDiff, xDiff));  
+            angleDiff = getRotation() - (int)Math.round(angle);
+            absoluteDiff = (int)Math.sqrt(xDiff*xDiff+yDiff*yDiff);
+        }
+    }
+
     public void faceTarget()  
     {
         if(target!=null)
@@ -220,10 +205,71 @@ public class Snake extends Actor
         }
     }
 
-    //logic for health checking and regaining or losing based on position
-    //and enemy interaction.
+    public void bodyControl()
+    {
+        //Add new body segments on a timer
+        addCounter++;
+        if(addCounter==addTimer)
+        {
+            SnakeBody playerbody = new SnakeBody();
+            getWorld().addObject(playerbody, getX(), getY());
+            addCounter=0;
+        }
+    }
+
+    public void controls()
+    {
+        move(speed);
+        SnakeIsActive--;
+        //Detect player interaction
+        if(Greenfoot.isKeyDown("right"))
+        {
+            turn(5);
+            SnakeIsActive=100;
+        }
+        if(Greenfoot.isKeyDown("left"))
+        {
+            turn(-5);
+            SnakeIsActive=100;
+        }
+        //Determine if the player is inactive
+        if(Background.players==0)
+        {
+            if(SnakeIsActive<=0)
+            {
+                determineTarget();
+                determineTargetLocation();
+                faceTarget();
+            }
+        }
+    }
+
+    public void eat()
+    {
+        //Remove the food and calculate the rewards
+        SnakeFood food = (SnakeFood) getOneIntersectingObject(SnakeFood.class);
+        if (food != null) {
+            sound = new GreenfootSound ("eat.mp3");
+            sound.setVolume(Background.volume);
+            sound.play();
+            foodEaten++;
+            Health=Health+10;
+            SnakeBody.end_timer=SnakeBody.end_timer+15;
+            SnakeHub.score+=15;
+            if(Health>50)
+            {
+                if(foodEaten%5==0)
+                {
+                    Primary=200;
+                }
+            }
+        }
+    }
+
+    
     public void Life()
     {
+        //Health regeneration
         Regeneration++;
         if(Regeneration==50)
         {
@@ -239,8 +285,7 @@ public class Snake extends Actor
         {
             Health=0;
         }
-        
-        //when player snake touches the enemy or vice versa
+        //EnemySnake interaction
         EnemySnake enemy = (EnemySnake) getOneIntersectingObject(EnemySnake.class);
         EnemySnakeBody enemybody = (EnemySnakeBody) getOneIntersectingObject(EnemySnakeBody.class);
         if (enemy != null)
@@ -260,118 +305,11 @@ public class Snake extends Actor
         }
         if(Health<=0)
         {
-            SnakeBody.end_timer=1; //dependency to be added in SnakeBody class
+            SnakeBody.end_timer=1;
             getWorld().removeObject(this);
         }
-        
-        
-    }
-
-    //logic for controlling the snake
-    public void controls()
-    {
-        move(speed);
-        PlayerIsActive--;
-        //Detect player interaction
-        if(Greenfoot.isKeyDown("right"))
-        {
-            turn(5);
-            PlayerIsActive=100;
-        }
-        if(Greenfoot.isKeyDown("left"))
-        {
-            turn(-5);
-            PlayerIsActive=100;
-        }
-        //Determine if the player is inactive
-        if(Background.players==0)
-        {
-            if(PlayerIsActive<=0)
-            {
-                determineTarget();
-                determineTargetLocation();
-                faceTarget();
-            }
-        }
-    }
-    
-    //for adding segments on the timer
-    public void bodyControl()
-    {
-        addCounter++;
-        if(addCounter==addTimer)
-        {
-            SnakeBody playerbody = new SnakeBody();
-            getWorld().addObject(playerbody, getX(), getY());
-            addCounter=0;
-        }
-    }
-    
-    // logic for determining edges and set appropriate changes
-    public void Location()
-    {
-        //to move snake to other side of screen if it hits the edge
-         if(getX()>800)
-        {
-            setLocation(0,getY());
-        }
-        if(getX()<0)
-        {
-            setLocation(800,getY());
-        }
-        if(getY()>600)
-        {
-            setLocation(getX(),0);
-        }
-        if(getY()<0)
-        {
-            setLocation(getX(),600);
-        }
-    }
-    
-    public void determineTarget()
-    {
-        if(getWorld().getObjects(EnemySnake.class).isEmpty())
-        {
-            target="FOOD";
-        }else{
-            if(Primary>=1)
-            {
-                target="ENEMY";
-                Primary--;
-            }else{
-                target="FOOD";
-            }
-        }
-    }
-     
-    public void determineTargetLocation()
-    {
-        if(target!=null)
-        {
-            if(target=="ENEMY")
-            {
-                EnemySnake enemy=(EnemySnake) getWorld().getObjects(EnemySnake.class).get(0);
-                xDiff = enemy.getX() - getX();  
-                yDiff = enemy.getY() - getY();  
-                locationxDiff= getX()- enemy.getX();
-                locationyDiff= getY()- enemy.getY();
-            }
-            if(target=="FOOD")
-            {
-                //to be implemented
-                SnakeFood food=(SnakeFood) getWorld().getObjects(SnakeFood.class).get(0);
-                xDiff = food.getX() - getX();  
-                yDiff = food.getY() - getY();  
-                locationxDiff= getX()- food.getX();
-                locationyDiff= getY()- food.getY();
-            }
-            angle = Math.toDegrees(Math.atan2(yDiff, xDiff));  
-            angleDiff = getRotation() - (int)Math.round(angle);
-            absoluteDiff = (int)Math.sqrt(xDiff*xDiff+yDiff*yDiff);
-        }
     }
     
     
-     
+ 
 }

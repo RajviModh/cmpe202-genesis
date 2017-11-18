@@ -65,6 +65,7 @@ public class Background extends World
         Snake player = new Snake();
         EnemySnake enemy = new EnemySnake();
         Announcement announce = new Announcement();
+   
         SnakeFood sfood = new SnakeFood();
         FramePerSec fps = new FramePerSec();
         SnakeHub snakehub = new SnakeHub();
