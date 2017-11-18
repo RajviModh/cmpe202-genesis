@@ -20,6 +20,7 @@ public class Background extends World
     public static boolean Muted;
     public static int volume;
     public String key;
+    
     Snake player = new Snake();
     EnemySnake enemy = new EnemySnake();
     private GreenfootSound music = new GreenfootSound("background.mp3");
@@ -33,7 +34,7 @@ public class Background extends World
     {    
         super(800, 600, 1,false); 
         start=0;
-        setPaintOrder(Snake.class, EnemySnake.class, SnakeBody.class, EnemySnakeBody.class);
+        setPaintOrder(Snake.class, EnemySnake.class, SnakeBody.class, EnemySnakeBody.class, SnakeFood.class, SnakeHub.class);
         World=null;
         Paused=false;
         Muted=false;
@@ -51,6 +52,7 @@ public class Background extends World
          
          Background.playerSize = 11;
          Background.foodSize=16;
+         
          MainScreen mainscreen = new MainScreen();
          addObject(mainscreen, 400, 300);
          FramePerSec fps = new FramePerSec();
@@ -63,7 +65,37 @@ public class Background extends World
         Snake player = new Snake();
         EnemySnake enemy = new EnemySnake();
         Announcement announce = new Announcement();
-        SnakeFood sfood = new SnakeFood();
+     
+       Chain c1 = new Announcement1();
+       Chain c2 = new Announcement2();
+       Chain c3 = new Announcement3();
+       Chain c4 = new startGame();
+       
+       c1.setNext(c2);
+       c2.setNext(c3);
+       c3.setNext(c4);
+       
+       c1.start(announce);
+       
+       int i=1;
+       announce.startCount=1;
+       c1.start(announce); //announce 3
+       try{
+       Thread.sleep(700);
+       announce.startCount=50;
+       c1.start(announce);   //announce 2
+       
+       Thread.sleep(700);
+       announce.startCount=100;
+       c1.start(announce);  //announce 1
+       
+       Thread.sleep(700);
+       announce.startCount=150;
+       c1.start(announce);    //start game
+    }
+    catch(Exception e)
+    {}
+       SnakeFood sfood = new SnakeFood();
         FramePerSec fps = new FramePerSec();
         SnakeHub snakehub = new SnakeHub();
         EnemySnakeHub enemyhub = new EnemySnakeHub();
@@ -111,7 +143,7 @@ public class Background extends World
     }
     
     public void Pause(){
-        String key = Greenfoot.getKey();  
+        key = Greenfoot.getKey();  
         if ("p".equals(key))  
         {
             if(Paused)
@@ -136,13 +168,16 @@ public class Background extends World
     
     public void reset()
     { 
-       List objects = getObjects(null);  
+       if("r".equals(key))
+       {
+            List objects = getObjects(null);  
             removeObjects(objects); 
             Paused=false;
             prepareInitial();
+       }
     }
     
-        public void Image()
+    public void Image()
     {
         GreenfootImage image = new GreenfootImage(getWidth(), getHeight()); 
         image.clear();
@@ -221,7 +256,6 @@ public class Background extends World
                     EnemySnakeBody.armour=0;
                     EnemySnake.Health=100;
                     addObject(enemy, 400, 150);
-                    
                 }
             }
         }
