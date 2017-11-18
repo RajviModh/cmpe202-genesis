@@ -31,8 +31,8 @@ public class PlayerOne  implements selectPlayerStrategy
                 }
                 if(s.foodCount<50)
                 {
-                    s.findTarget();
-                    s.findTargetLocation();
+                    s.determineTarget();
+                    s.determineTargetLocation();
                     s.faceTarget();
                 }
             }

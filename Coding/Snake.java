@@ -4,7 +4,7 @@ import java.awt.Font;
 import java.util.Calendar;
 import java.lang.Math;
 
-public class Snake extends Prototype
+public class Snake extends Prototype implements FactoryInterface
 {
     public int speed=5;
     public int rotation=5;
@@ -123,7 +123,7 @@ public class Snake extends Prototype
         } 
     }
     
-   
+    @Override
     public void determineTarget()
     {
         //Determine what the primary target is
@@ -140,7 +140,8 @@ public class Snake extends Prototype
             }
         }
     }
-
+    
+    @Override
     public boolean foodPresent()
     {
         //Detect if the EnemySnake is within the location it beleieves to be the food and if it intersects with the food
@@ -152,6 +153,7 @@ public class Snake extends Prototype
         return false;
     }
 
+    @Override
     public void determineTargetLocation()
     {
         //calculate needed variables
@@ -179,6 +181,7 @@ public class Snake extends Prototype
         }
     }
 
+    @Override
     public void faceTarget()  
     {
         if(target!=null)
@@ -216,7 +219,8 @@ public class Snake extends Prototype
             addCounter=0;
         }
     }
-
+    
+    
     public void controls()
     {
         move(speed);
@@ -244,6 +248,7 @@ public class Snake extends Prototype
         }
     }
 
+    @Override
     public void eat()
     {
         //Remove the food and calculate the rewards
@@ -266,7 +271,7 @@ public class Snake extends Prototype
         }
     }
 
-    
+    @Override
     public void Life()
     {
         //Health regeneration
