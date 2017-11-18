@@ -32,12 +32,22 @@ public class Announcement extends Actor
     public int startCount=0;
     GreenfootImage start = new GreenfootImage(50,50);
     GreenfootSound sound;
+    Chain c1 = new Announcement1();
+    
     
     //Constructor for announcement class
     public Announcement()
     {
         getImage().clear();
         initial=0;
+        Chain c2 = new Announcement2();
+       Chain c3 = new Announcement3();
+       Chain c4 = new startGame();
+       
+       c1.setNext(c2);
+       c2.setNext(c3);
+       c3.setNext(c4);
+        
     }
     
     
@@ -105,45 +115,10 @@ public class Announcement extends Actor
    public void start()
     {
        Background.Paused=true;
-       //startCount++;
+       startCount++;
        Font font = new Font("Calibri",Font.PLAIN, 40);
        start.setFont(font);
        start.setColor(new Color(210,0,0));
-       
-       //
-       
-       /*if(startCount==1)
-        {
-            //code to add different sounds
-            sound = new GreenfootSound ("3.mp3");
-            sound.play();
-            start.clear();
-            start.drawString("3",15,40);
-            setImage(start);
-        }
-        if(startCount==50)
-        {
-            sound = new GreenfootSound ("2.mp3");
-            sound.play();
-            start.clear();
-            start.drawString("2",15,40);
-            setImage(start);
-        }
-        if(startCount==100)
-        {
-            sound = new GreenfootSound ("1.mp3");
-            sound.play();
-            start.clear();
-            start.drawString("1",15,40);
-            setImage(start);
-        }*/
-        
-        if(startCount==150)
-        {
-            Background.Paused=false;
-            start.clear();
-            setImage(start);
-            initial=0;
-        }
+       c1.start(this);
     }
 }

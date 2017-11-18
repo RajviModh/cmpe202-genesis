@@ -65,37 +65,8 @@ public class Background extends World
         Snake player = new Snake();
         EnemySnake enemy = new EnemySnake();
         Announcement announce = new Announcement();
-     
-       Chain c1 = new Announcement1();
-       Chain c2 = new Announcement2();
-       Chain c3 = new Announcement3();
-       Chain c4 = new startGame();
-       
-       c1.setNext(c2);
-       c2.setNext(c3);
-       c3.setNext(c4);
-       
-       c1.start(announce);
-       
-       int i=1;
-       announce.startCount=1;
-       c1.start(announce); //announce 3
-       try{
-       Thread.sleep(700);
-       announce.startCount=50;
-       c1.start(announce);   //announce 2
-       
-       Thread.sleep(700);
-       announce.startCount=100;
-       c1.start(announce);  //announce 1
-       
-       Thread.sleep(700);
-       announce.startCount=150;
-       c1.start(announce);    //start game
-    }
-    catch(Exception e)
-    {}
-       SnakeFood sfood = new SnakeFood();
+   
+        SnakeFood sfood = new SnakeFood();
         FramePerSec fps = new FramePerSec();
         SnakeHub snakehub = new SnakeHub();
         EnemySnakeHub enemyhub = new EnemySnakeHub();
