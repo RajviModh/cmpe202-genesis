@@ -139,7 +139,7 @@ public class MainScreen extends Actor
         setState(new EasyDifficulty());
         state.draw(this);
         
-        setState(new EasyDifficulty());
+        setState(new MediumDifficulty());
         state.draw(this);
         
         setState(new HardDifficulty());
