@@ -47,3 +47,8 @@
 **Summary (11/11/2017)**
 1) With implementation, team is taking feedback about code integration in each other's modules. 
 2) Also team is taking feedback as peer review from each other about written code and how to improve it.
+
+**Summary (11/18/2017)**
+1)Team is taking feedbacks about the final implementation and merging of code levels.
+2)Team is taking review about which design patterns can be implemented when its possible to have more the one.
+3)Team took feedbacks from potential users and added some small features in game.
