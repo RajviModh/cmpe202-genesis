@@ -25,8 +25,12 @@ After successfully installing Greenfoot 3.0.4, you can download the project and 
 
 ### Design Patterns
 
-
-** Yet to define
+The code has been developed using following design patterns:
+Chain of Resposibility
+State
+Factory Method
+Prototype
+Strategy
 
 ## Deployment
 
