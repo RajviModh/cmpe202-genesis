@@ -13,7 +13,7 @@ public class MainScreen extends Actor
      * Act - do whatever the MainScreen wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
+    FactorySnakeEnemy factory=new FactorySnakeEnemy(); 
     GreenfootImage image = new GreenfootImage(800,600);
     public String message;
     public int waitCount;
@@ -76,8 +76,8 @@ public class MainScreen extends Actor
         waitCount++;
         if(waitCount>=100)
         {
-            Snake player = new Snake();
-            getWorld().addObject(player, 30, 300);
+            FactoryInterface player=factory.getObject("Snake");
+            getWorld().addObject((Actor)player, 30, 300);
             waitCount=0;
         }
     }
@@ -139,7 +139,7 @@ public class MainScreen extends Actor
         setState(new EasyDifficulty());
         state.draw(this);
         
-        setState(new EasyDifficulty());
+        setState(new MediumDifficulty());
         state.draw(this);
         
         setState(new HardDifficulty());

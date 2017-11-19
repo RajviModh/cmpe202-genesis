@@ -7,7 +7,7 @@ import java.lang.Math;
  * @author Keval Shah
  * @version (a version number or a date)
  */
-public class EnemySnake extends Actor 
+public class EnemySnake extends Prototype implements FactoryInterface
 {
     // instance variables - replace the example below with your own
     private int x;
@@ -80,12 +80,13 @@ public class EnemySnake extends Actor
                 eat();
                 Location();
                 bodyControl();
-                isFoodPresent();
+                foodPresent();
                 Life();
             }
         }  
     }
     
+    @Override
     public void bodyControl()
     {
         //Add new body segments on a timer
@@ -97,6 +98,8 @@ public class EnemySnake extends Actor
             addCounter=0;
         }
     }
+    
+    
     public void controls(int playerCount)
     {
         //Used to control the enemy snake
@@ -160,7 +163,8 @@ public class EnemySnake extends Actor
         
     }
     
-     public void eat()
+    @Override
+    public void eat()
     {
         //Called when the snake eats the food
          SnakeFood snakefood = (SnakeFood) getOneIntersectingObject(SnakeFood.class);
@@ -182,7 +186,8 @@ public class EnemySnake extends Actor
         }
     }
     
-     public void findTarget()
+    @Override
+    public void determineTarget()
     {
         //Determine the Target Food 
               if(getWorld().getObjects(Snake.class).isEmpty())
@@ -200,7 +205,8 @@ public class EnemySnake extends Actor
        
     }
     
-    public void findTargetLocation()
+    @Override
+    public void determineTargetLocation()
     {
     difficulty();
     if(targetSet!=1)
@@ -269,7 +275,8 @@ public class EnemySnake extends Actor
         }
     }
     
-     public boolean isFoodPresent()
+    @Override
+     public boolean foodPresent()
     {
         //Detect if the Enemy is within the location it beleives to be the food and if it intersects with the food
 
@@ -281,6 +288,8 @@ public class EnemySnake extends Actor
         return false;
 
     }
+    
+    @Override
     public void faceTarget()
     {
         if(target!=null)
@@ -307,6 +316,7 @@ public class EnemySnake extends Actor
         }
     }    
     
+    @Override
     public void Life()
     {
        //Handles the XP points, health and life bars 
@@ -352,25 +362,6 @@ public class EnemySnake extends Actor
         }
     }
     
-    public void Location()
-    {
-        //Move the snake to the inverse side of the screen if on edge
-       if(getX()>800)
-        {
-            setLocation(0,getY());
-        }
-        if(getX()<0)
-        {
-            setLocation(800,getY());
-        }
-        if(getY()>400)
-        {
-            setLocation(getX(),0);
-        }
-        if(getY()<0)
-        {
-            setLocation(getX(),600);
-        }
-     }
+    
    
 }

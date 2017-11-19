@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class Background extends World
 {
+    FactorySnakeEnemy factory=new FactorySnakeEnemy(); 
     public static int playerSize;
     public static int foodSize;
     public static boolean Paused;
@@ -21,8 +22,9 @@ public class Background extends World
     public static int volume;
     public String key;
     
-    Snake player = new Snake();
-    EnemySnake enemy = new EnemySnake();
+    
+    FactoryInterface player=factory.getObject("Snake");
+    FactoryInterface enemy=factory.getObject("EnemySnake"); 
     private GreenfootSound music = new GreenfootSound("background.mp3");
     
 
@@ -62,40 +64,11 @@ public class Background extends World
     
     private void prepareSnakeGame()
     {
-        Snake player = new Snake();
-        EnemySnake enemy = new EnemySnake();
-        Announcement announce = new Announcement();
-     
-       Chain c1 = new Announcement1();
-       Chain c2 = new Announcement2();
-       Chain c3 = new Announcement3();
-       Chain c4 = new startGame();
-       
-       c1.setNext(c2);
-       c2.setNext(c3);
-       c3.setNext(c4);
-       
-       c1.start(announce);
-       
-       int i=1;
-       announce.startCount=1;
-       c1.start(announce); //announce 3
-       try{
-       Thread.sleep(700);
-       announce.startCount=50;
-       c1.start(announce);   //announce 2
-       
-       Thread.sleep(700);
-       announce.startCount=100;
-       c1.start(announce);  //announce 1
-       
-       Thread.sleep(700);
-       announce.startCount=150;
-       c1.start(announce);    //start game
-    }
-    catch(Exception e)
-    {}
-       SnakeFood sfood = new SnakeFood();
+        FactoryInterface player=factory.getObject("Snake"); 
+        FactoryInterface enemy=factory.getObject("EnemySnake"); 
+        Announcement announce=new Announcement();
+   
+        SnakeFood sfood = new SnakeFood();
         FramePerSec fps = new FramePerSec();
         SnakeHub snakehub = new SnakeHub();
         EnemySnakeHub enemyhub = new EnemySnakeHub();
@@ -115,9 +88,9 @@ public class Background extends World
         SnakeHub.score=0;
         EnemySnakeHub.score=0;
         
-        addObject(player, 400, 450);
-        addObject(enemy, 400, 150);
-        addObject(announce, 400, 300);
+        addObject((Actor)player, 400, 450);
+        addObject((Actor)enemy, 400, 150);
+        addObject((Actor)announce, 400, 300);
         addObject(sfood, 600, 300);
         addObject(snakehub, 60, 300);
         addObject(enemyhub, 740, 300);
@@ -208,17 +181,18 @@ public class Background extends World
     
     public void addNew()
     {
-        Snake player = new Snake();
-        EnemySnake enemy = new EnemySnake();
+        FactoryInterface player=factory.getObject("Snake"); 
+        FactoryInterface enemy=factory.getObject("EnemySnake"); 
+        
         if("a".equals(key))
         {
             if(getObjects(Snake.class).isEmpty())
             {
-                addObject(player, 400, 450);
+                addObject((Actor)player, 400, 450);
             }
             if(getObjects(EnemySnake.class).isEmpty())
             {
-                addObject(enemy, 400, 150);
+                addObject((Actor)enemy, 400, 150);
             }
         }
     }
@@ -239,7 +213,7 @@ public class Background extends World
                     SnakeBody.end_timer=50;
                     SnakeBody.shield=0;
                     Snake.Health=100;
-                    addObject(player, 400, 450);
+                    addObject((Actor)player, 400, 450);
                 }
             }
             if(getObjects(EnemySnake.class).isEmpty())
@@ -255,7 +229,7 @@ public class Background extends World
                     EnemySnakeBody.killtimer=50;
                     EnemySnakeBody.armour=0;
                     EnemySnake.Health=100;
-                    addObject(enemy, 400, 150);
+                    addObject((Actor)enemy, 400, 150);
                 }
             }
         }
