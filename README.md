@@ -21,20 +21,22 @@ After successfully installing Greenfoot 3.0.4, you can download the project and 
 
 ## Running the tests
 
-** Yet to define
+** Single player game against computer
+** 2 player game
+** 3 difficulty levels(easy,medium,hard) for single/multi player game
 
 ### Design Patterns
 
 The code has been developed using following design patterns:
-Chain of Resposibility
-State
-Factory Method
-Prototype
-Strategy
+** Chain of Resposibility
+** State
+** Factory Method
+** Prototype
+** Strategy
 
 ## Deployment
 
-** Yet to define
+** The game can be started with a jar file or greenfoot file.
 
 ## Cumulative Flow Diagram for week1 to week4
 
